@@ -10,7 +10,6 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://bukhara-restaurant-454ac.web.app/">
 <meta property="og:title" content="Bukhara Restaurant — Kabul">
 <meta property="og:description" content="Luxurious Afghan and Pakistani dining beside Malalay Hospital.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80">
@@ -22,10 +21,8 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+<!-- EmailJS Script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script>
   try {
@@ -36,6 +33,7 @@
 </script>
 
 <style>
+/* ... [KEEP ALL YOUR EXISTING CSS HERE - NO CHANGES NEEDED] ... */
 *,*::before,*::after{box-sizing:border-box}
 :root{
   --ink:#100C09;--ink-2:#18120E;--ink-3:#241C16;
@@ -105,7 +103,6 @@ p{margin:0}
 .btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important}
 [dir="rtl"] .icon-dir{transform:scaleX(-1)}
 
-/* Loading Spinner */
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:#000;border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -495,14 +492,13 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .toast.show{opacity:1;transform:none}
 @media (max-width:560px){.toast{bottom:calc(1rem + 58px);inset-inline-start:1rem}}
 
+/* Admin Styles */
 .admin-toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1.2rem}
 .admin-count{font-size:.82rem;color:var(--muted);margin-inline-start:auto;font-weight:600}
 .admin-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;border-bottom:1px solid var(--line-soft);padding-bottom:.8rem}
 .admin-tab-btn{padding:.6rem 1.2rem;border-radius:999px;font-size:.88rem;font-weight:600;color:var(--muted);background:transparent;transition:.2s;display:inline-flex;align-items:center;gap:.4rem;position:relative}
 .admin-tab-btn:hover{background:rgba(201,164,92,.1);color:var(--gold-3)}
 .admin-tab-btn.active{background:var(--ink);color:#F3ECE2}
-.admin-tab-badge{background:var(--danger);color:#fff;font-size:.65rem;padding:.1rem .4rem;border-radius:999px;font-weight:800;display:none;animation:pulse 1.5s infinite}
-.admin-tab-btn.active .admin-tab-badge{background:var(--gold);color:#1A1408;animation:none}
 .admin-tab-content{display:none;animation:pageIn .3s var(--ease)}
 .admin-tab-content.active{display:block}
 
@@ -541,40 +537,9 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .admin-item-actions{display:flex;gap:.3rem;flex:0 0 auto}
 .admin-item-actions .btn{padding:.4rem .65rem;font-size:.74rem}
 .admin-empty{color:var(--muted);font-size:.88rem;text-align:center;padding:1rem}
-.cat-list{display:flex;flex-direction:column;gap:.4rem}
-.cat-item{display:flex;align-items:center;gap:.6rem;padding:.55rem .75rem;background:#fff;border:1px solid var(--line-soft);border-radius:10px;font-size:.85rem}
-.cat-item .cat-names{flex:1;min-width:0}
-.cat-item .cat-names strong{display:block;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cat-item .cat-names span{font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
-.cat-item .cat-id{font-family:monospace;font-size:.72rem;color:var(--muted);padding:2px 6px;background:var(--cream-2);border-radius:5px;flex:0 0 auto}
-.cat-item button{flex:0 0 auto;font-size:.72rem;padding:.3rem .65rem}
-
 .staff-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
 .staff-item{display:flex;align-items:center;justify-content:space-between;padding:.6rem .8rem;background:#fff;border:1px solid var(--line-soft);border-radius:10px;font-size:.88rem}
 .staff-item span{font-weight:600;color:var(--text)}
-.staff-item .btn{padding:.3rem .6rem;font-size:.72rem;color:#B4462F;border-color:rgba(180,70,47,.3)}
-.staff-item .btn:hover{background:#B4462F;color:#fff;border-color:#B4462F}
-
-.order-card{background:#fff;border:1px solid var(--line-soft);border-radius:13px;padding:.85rem 1rem;margin-bottom:.65rem;font-size:.85rem;border-inline-start:3px solid var(--gold)}
-.order-card.done{opacity:.58;border-inline-start-color:#7DDA8A}
-.order-head{display:flex;justify-content:space-between;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap;align-items:baseline}
-.order-head strong{font-family:monospace;font-size:.8rem;letter-spacing:.04em}
-.order-time{font-size:.72rem;color:var(--muted)}
-.order-lines{font-size:.8rem;color:var(--muted);margin:.35rem 0;padding-inline-start:1rem;list-style:disc;line-height:1.55}
-.order-total{font-weight:700;color:var(--gold-3);margin-top:.35rem}
-.order-customer{font-size:.78rem;margin-top:.45rem;display:flex;flex-direction:column;gap:.15rem;color:var(--muted);line-height:1.5}
-.order-customer strong{color:var(--text);font-weight:600}
-.order-actions{display:flex;gap:.4rem;margin-top:.65rem;flex-wrap:wrap}
-.order-actions .btn{font-size:.72rem;padding:.32rem .68rem}
-
-.admin-login-card{max-width:420px;margin-inline:auto;background:rgba(255,252,250,.95);border:1px solid var(--line-soft);border-radius:20px;padding:clamp(1.4rem,3vw,2rem);box-shadow:var(--shadow-sm)}
-.admin-login-card h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:.35rem}
-.admin-login-card p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
-.admin-login-error{color:#B4462F;font-size:.82rem;font-weight:600;margin-top:.5rem;min-height:1.2em}
-.admin-status{padding:.7rem 1rem;border-radius:12px;margin-bottom:1.2rem;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:.6rem}
-.admin-status.ok{background:rgba(60,130,80,.1);border:1px solid rgba(60,130,80,.3);color:#2C6B41}
-.admin-status.warn{background:rgba(201,164,92,.14);border:1px solid var(--line);color:var(--gold-3)}
-.admin-status.info{background:rgba(16,12,9,.05);border:1px solid var(--line-soft);color:var(--muted)}
 
 #page-admin .cart-fab, #page-admin .wa-float { display: none !important; }
 
@@ -587,7 +552,6 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 @media (max-width: 960px) {
   .footer-bottom { padding-bottom: 6rem !important; }
 }
-
 html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 .page-hero, .site-footer, .hero { width: 100% !important; }
 
@@ -646,343 +610,33 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
 <main id="main">
 
-<section class="page active" id="page-home">
-  <section class="hero">
-    <div class="hero-media"><img id="dyn-hero-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=70" alt="Dining room at Bukhara Restaurant" data-fallback fetchpriority="high"></div>
-    <div class="container hero-inner">
-      <div class="open-pill"><i></i><span data-i18n="hero.openNow">Open now · 24 hours</span></div>
-      <p class="eyebrow" data-i18n="hero.eyebrow">Karta-e-Chahar · Kabul</p>
-      <h1 id="dyn-hero-title"><span data-i18n="hero.t1">A Taste of</span><br><em data-i18n="hero.t2">Bukhara</em></h1>
-      <p class="hero-lead" id="dyn-hero-sub" data-i18n="hero.sub">Luxurious Afghan and Pakistani dining beside Malalay Hospital — prepared fresh and served around the clock.</p>
-      <div class="hero-cta">
-        <a class="btn btn--gold" href="#menu"><span data-i18n="hero.cta1">Explore the Menu</span>
-          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn--ghost dyn-wa-link" href="#" target="_blank" rel="noopener" data-i18n="hero.cta2">Reserve on WhatsApp</a>
-      </div>
-      <ul class="hero-facts">
-        <li><strong>4.3<span class="star">★</span></strong><span data-i18n="fact.rating">978 Google reviews</span></li>
-        <li><strong data-i18n="fact.openV">24/7</strong><span data-i18n="fact.open">Open 24 hours</span></li>
-        <li><strong data-i18n="fact.branchV">Karta-e-Chahar</strong><span data-i18n="fact.branch">Kabul, Afghanistan</span></li>
-      </ul>
-    </div>
-    <button class="scroll-cue" type="button" aria-label="Scroll" id="scrollCue"></button>
-  </section>
-  <div class="ribbon" aria-hidden="true">
-    <div class="ribbon-track">
-      <span>Kabuli Pulao</span><span>Chicken Handi</span><span>Seekh Kebab</span><span>Mantu</span><span>Bolani</span><span>Chopan Kebab</span><span>Fresh Naan</span><span>Doogh</span>
-      <span>Kabuli Pulao</span><span>Chicken Handi</span><span>Seekh Kebab</span><span>Mantu</span><span>Bolani</span><span>Chopan Kebab</span><span>Fresh Naan</span><span>Doogh</span>
-    </div>
-  </div>
-  <section class="section" id="intro">
-    <div class="container split">
-      <div class="split-media reveal">
-        <div class="media media--tall">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=70" alt="Table setting" loading="lazy" data-fallback>
-          <div class="media-badge"><strong>4.3★</strong><span data-i18n="intro.badge">Guest rating</span></div>
-        </div>
-      </div>
-      <div class="split-body reveal" data-delay="1">
-        <p class="eyebrow" data-i18n="intro.eyebrow">Welcome to Bukhara</p>
-        <h2 class="section-title" data-i18n="intro.title">Where Afghan hospitality meets fine dining</h2>
-        <p class="section-lead" data-i18n="intro.p1">Bukhara Restaurant brings together the rich flavours of Afghan and Pakistani cuisine in an elegant setting in Karta-e-Chahar, Kabul.</p>
-        <p class="section-lead" style="margin-top:1rem" data-i18n="intro.p2">Whether it is a family dinner, a business meeting or a late-night meal, our doors are open 24 hours a day.</p>
-        <div class="split-stats">
-          <div class="stat"><strong>24/7</strong><span data-i18n="intro.s1">Always open</span></div>
-          <div class="stat"><strong>978+</strong><span data-i18n="intro.s2">Google reviews</span></div>
-        </div>
-        <a class="btn btn--outline" href="#about"><span data-i18n="intro.btn">Our Story</span>
-          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-  <section class="section section--cream2">
-    <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow" data-i18n="dishes.eyebrow">Signature Dishes</p>
-        <h2 class="section-title" data-i18n="dishes.title">Crafted to be remembered</h2>
-        <p class="section-lead" data-i18n="dishes.sub">A selection of the dishes our guests keep coming back for.</p>
-      </div>
-      <div class="grid-4">
-        <article class="dish-card reveal">
-          <div class="media"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=70" alt="Chicken Handi" loading="lazy" data-fallback></div>
-          <div class="dish-card-body"><h3 data-i18n="d1.n">Chicken Handi</h3><p data-i18n="d1.d">Slow-cooked chicken in a rich, spiced tomato and cream sauce.</p></div>
-        </article>
-        <article class="dish-card reveal" data-delay="1">
-          <div class="media"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=70" alt="Wings" loading="lazy" data-fallback></div>
-          <div class="dish-card-body"><h3 data-i18n="d2.n">Bukhara Wings</h3><p data-i18n="d2.d">Crispy grilled wings with our house seasoning and dipping sauce.</p></div>
-        </article>
-        <article class="dish-card reveal" data-delay="2">
-          <div class="media"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=70" alt="Kabuli Pulao" loading="lazy" data-fallback></div>
-          <div class="dish-card-body"><h3 data-i18n="d3.n">Kabuli Pulao</h3><p data-i18n="d3.d">Fragrant basmati rice with tender lamb, carrots, raisins and almonds.</p></div>
-        </article>
-        <article class="dish-card reveal" data-delay="3">
-          <div class="media"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=70" alt="Seekh kebab" loading="lazy" data-fallback></div>
-          <div class="dish-card-body"><h3 data-i18n="d4.n">Seekh Kebab</h3><p data-i18n="d4.d">Hand-minced kebabs grilled over charcoal, served with fresh naan.</p></div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:clamp(2rem,4vw,2.8rem)" class="reveal">
-        <a class="btn btn--dark" href="#menu"><span data-i18n="dishes.btn">View Full Menu</span>
-          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow" data-i18n="why.eyebrow">Why Bukhara</p>
-        <h2 class="section-title" data-i18n="why.title">An experience, not just a meal</h2>
-      </div>
-      <div class="grid-4">
-        <article class="feature reveal"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 data-i18n="w1.t">Open 24 Hours</h3><p data-i18n="w1.d">Early breakfast or a midnight dinner — we are always ready to serve you.</p></article>
-        <article class="feature reveal" data-delay="1"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1.5 3-4.5 4.5-4.5 8a4.5 4.5 0 0 0 9 0c0-3.5-3-5-4.5-8z"/><path d="M5 21h14"/></svg></div><h3 data-i18n="w2.t">Authentic Flavours</h3><p data-i18n="w2.d">Traditional Afghan and Pakistani recipes prepared by experienced chefs.</p></article>
-        <article class="feature reveal" data-delay="2"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div><h3 data-i18n="w3.t">Elegant Atmosphere</h3><p data-i18n="w3.d">A luxurious, spotless dining room designed for families and business guests.</p></article>
-        <article class="feature reveal" data-delay="3"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div><h3 data-i18n="w4.t">Delivery &amp; Drive-Through</h3><p data-i18n="w4.d">Dine in, drive through, or order no-contact delivery to your door.</p></article>
-      </div>
-    </div>
-  </section>
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow" data-i18n="testi.eyebrow">Guest Reviews</p>
-        <h2 class="section-title" data-i18n="testi.title">What our guests say</h2>
-        <p class="section-lead" data-i18n="testi.sub">Rated 4.3 out of 5 from 978 reviews on Google.</p>
-      </div>
-      <div class="grid-3">
-        <article class="quote-card reveal">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote data-i18n="r1.q">An exceptional dining experience! Truly one of the most luxurious restaurants, with a great sense of class and elegance. The food was outstanding.</blockquote>
-          <div class="quote-person"><span class="avatar" aria-hidden="true">MA</span><span><strong data-i18n="r1.n">Makhachov Armani</strong><span data-i18n="r1.r">Local Guide · Google review</span></span></div>
-        </article>
-        <article class="quote-card reveal" data-delay="1">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote data-i18n="r2.q">Amazing! I was pleasantly impressed by Bukhara Restaurant in Kabul. I ordered the Chicken Handi, fresh watermelon juice and Afghan bread — all of it tasted fresh and wonderful.</blockquote>
-          <div class="quote-person"><span class="avatar" aria-hidden="true">SG</span><span><strong data-i18n="r2.n">S G</strong><span data-i18n="r2.r">Local Guide · Google review</span></span></div>
-        </article>
-        <article class="quote-card reveal" data-delay="2">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote data-i18n="r3.q">Bukhara Restaurant is truly one of the finest and most luxurious restaurants in Kabul. From the moment you enter, you can feel the elegant and welcoming atmosphere.</blockquote>
-          <div class="quote-person"><span class="avatar" aria-hidden="true">RA</span><span><strong data-i18n="r3.n">Rabee Azizi</strong><span data-i18n="r3.r">Local Guide · Google review</span></span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="cta-band">
-    <div class="container"><div class="reveal">
-      <h2 data-i18n="cta.title">Reserve your table today</h2>
-      <p data-i18n="cta.sub">Call us or send a message on WhatsApp — we are open 24 hours a day.</p>
-      <div class="cta-actions">
-        <a class="btn btn--gold" href="tel:+93789444222" id="dyn-cta-call">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span id="dyn-cta-call-text">Call +93 78 944 4222</span></a>
-        <a class="btn btn--ghost dyn-wa-link" href="#" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
-          <span data-i18n="cta.wa">Chat on WhatsApp</span></a>
-      </div>
-    </div></div>
-  </section>
-</section>
-
-<section class="page" id="page-about">
-  <header class="page-hero">
-    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=70" alt="Dining hall" data-fallback></div>
-    <div class="container">
-      <p class="eyebrow" data-i18n="ab.eyebrow">About Us</p>
-      <h1 id="dyn-about-hero-title" data-i18n="ab.title">A Kabul table for every hour</h1>
-      <p class="section-lead" id="dyn-about-hero-lead" data-i18n="ab.lead">Bukhara Restaurant was built around a simple idea: that great food and genuine hospitality should be available to everyone, at any hour.</p>
-    </div>
-  </header>
-  <section class="section">
-    <div class="container split">
-      <div class="split-body reveal">
-        <p class="eyebrow" data-i18n="ab.eyebrow2">Our Story</p>
-        <h2 class="section-title" id="dyn-about-section-title" data-i18n="ab.h1">From a family kitchen to a Kabul landmark</h2>
-        <p class="section-lead" id="dyn-about-section-text" data-i18n="ab.p1">Our kitchen is rooted in the cooking of Afghanistan and the wider region — rice dishes slow-steamed with lamb and carrots, kebabs grilled over charcoal, and handi dishes simmered for hours.</p>
-      </div>
-      <div class="split-media reveal" data-delay="1">
-        <div class="media media--tall">
-          <img id="dyn-about-img" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1000&q=70" alt="Fresh food" loading="lazy" data-fallback>
-          <div class="media-badge"><strong>24/7</strong><span data-i18n="ab.badge">Open every day</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section section--cream2">
-    <div class="container">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow" data-i18n="ab.vEyebrow">What Defines Us</p>
-        <h2 class="section-title" data-i18n="ab.vTitle">Four things we never compromise on</h2>
-      </div>
-      <div class="grid-4">
-        <article class="feature reveal"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 data-i18n="ab.v1t">Hospitality</h3><p data-i18n="ab.v1d">Every guest is received the Afghan way — with respect, warmth and generosity.</p></article>
-        <article class="feature reveal" data-delay="1"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3 data-i18n="ab.v2t">Quality</h3><p data-i18n="ab.v2d">Fresh ingredients, careful preparation and consistent standards in every plate.</p></article>
-        <article class="feature reveal" data-delay="2"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9a8 8 0 0 1 16 0v10"/><path d="M2 19h20"/><path d="M9 19v-4a3 3 0 0 1 6 0v4"/></svg></div><h3 data-i18n="ab.v3t">Tradition</h3><p data-i18n="ab.v3d">Recipes passed down through generations, cooked the way they were meant to be.</p></article>
-        <article class="feature reveal" data-delay="3"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M10 12h4v4h-4z"/></svg></div><h3 data-i18n="ab.v4t">Comfort</h3><p data-i18n="ab.v4d">A clean, calm and elegant space that works for families and business meetings alike.</p></article>
-      </div>
-    </div>
-  </section>
-  <section class="cta-band">
-    <div class="container"><div class="reveal">
-      <h2 data-i18n="ab.ctaTitle">Come and taste the difference</h2>
-      <p data-i18n="ab.ctaSub">Find us beside Malalay Hospital in Karta-e-Chahar — open 24 hours, every day of the week.</p>
-      <div class="cta-actions">
-        <a class="btn btn--gold" href="#menu" data-i18n="ab.ctaBtn">See the Menu</a>
-        <a class="btn btn--ghost" href="#contact" data-i18n="nav.contact">Contact</a>
-      </div>
-    </div></div>
-  </section>
-</section>
-
-<section class="page" id="page-menu">
-  <header class="page-hero">
-    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=70" alt="Dishes at Bukhara" data-fallback></div>
-    <div class="container">
-      <p class="eyebrow" data-i18n="mn.eyebrow">Our Menu</p>
-      <h1 id="dyn-menu-title" data-i18n="mn.title">Afghan &amp; Pakistani classics, all day</h1>
-      <p class="section-lead" id="dyn-menu-lead" data-i18n="mn.sub">From charcoal-grilled kebabs to rich handi curries, fresh bread and cold drinks — served from morning to morning.</p>
-    </div>
-  </header>
-  <section class="section">
-    <div class="container">
-      <div class="menu-search-wrap">
-        <input type="search" id="menuSearch" placeholder="Search food…" data-i18n-ph="mn.search" aria-label="Search food">
-      </div>
-      <div class="filters" id="menuFilters" role="tablist" aria-label="Menu categories"></div>
-      <div id="menuList"></div>
-      <p class="menu-note reveal">
-        <span data-i18n="mn.note">Menu items are subject to availability. Call</span>
-        <a href="tel:+93789444222" id="dyn-menu-phone">+93 78 944 4222</a>
-        <span data-i18n="mn.note2">to confirm today's selection.</span>
-      </p>
-      <div style="text-align:center;margin-top:clamp(2rem,4vw,2.8rem)" class="reveal">
-        <button class="btn btn--gold" type="button" data-open-cart>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
-          <span data-i18n="mn.orderCart">Open your order</span>
-        </button>
-      </div>
-    </div>
-  </section>
-</section>
-
-<section class="page" id="page-gallery">
-  <header class="page-hero">
-    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=70" alt="Atmosphere" data-fallback></div>
-    <div class="container">
-      <p class="eyebrow" data-i18n="gl.eyebrow">Gallery</p>
-      <h1 id="dyn-gallery-title" data-i18n="gl.title">A look inside Bukhara</h1>
-      <p class="section-lead" id="dyn-gallery-lead" data-i18n="gl.sub">Our food, our dining room and the little details that make a visit memorable.</p>
-    </div>
-  </header>
-  <section class="section">
-    <div class="container">
-      <div class="filters" id="galleryFilters" role="tablist" aria-label="Gallery categories"></div>
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-  </section>
-</section>
-
-<section class="page" id="page-contact">
-  <header class="page-hero">
-    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=70" alt="Contact" data-fallback></div>
-    <div class="container">
-      <p class="eyebrow" data-i18n="ct.eyebrow">Contact Us</p>
-      <h1 id="dyn-contact-title" data-i18n="ct.title">We are open right now</h1>
-      <p class="section-lead" id="dyn-contact-lead" data-i18n="ct.sub">Call, message us on WhatsApp, or simply walk in — our doors never close.</p>
-    </div>
-  </header>
-  <section class="section">
-    <div class="container contact-layout">
-      <div class="reveal">
-        <div class="grid-2" style="gap:1rem">
-          <article class="info-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><h3 data-i18n="ct.addrT">Address</h3><p id="dyn-contact-addr" data-i18n="ct.addrV">Beside Malalay Hospital, Qowai Markaz, Karta-e-Chahar, Kabul</p></div>
-          </article>
-          <article class="info-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div><h3 data-i18n="ct.phoneT">Phone</h3><p><a href="tel:+93789444222" dir="ltr" id="dyn-contact-phone">+93 78 944 4222</a></p></div>
-          </article>
-          <article class="info-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <div><h3 data-i18n="ct.hoursT">Opening Hours</h3><p id="dyn-contact-hours" data-i18n="ct.hoursV">Open 24 hours, 7 days a week</p></div>
-          </article>
-          <article class="info-card">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg></div>
-            <div><h3 data-i18n="ct.dirT">Directions</h3><p><a href="https://www.google.com/maps?q=34.530009,69.161181" target="_blank" rel="noopener" data-i18n="ct.dirBtn">Open in Google Maps</a></p></div>
-          </article>
-        </div>
-      </div>
-      <div class="form-card reveal" data-delay="1">
-        <h2 data-i18n="fm.title">Send us a message</h2>
-        <p data-i18n="fm.sub">Fill in the form and we will open WhatsApp with your message ready to send.</p>
-        <div class="chips" id="quickChips"></div>
-        <form id="contactForm" novalidate>
-          <div class="field" id="field-name">
-            <label for="cf-name" data-i18n="fm.name">Your name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" data-i18n-ph="fm.namePh" placeholder="e.g. Ahmad Karimi">
-            <span class="err" data-i18n="fm.errName">Please enter your name.</span>
-          </div>
-          <div class="field" id="field-phone">
-            <label for="cf-phone" data-i18n="fm.phone">Phone number (optional)</label>
-            <input type="tel" id="cf-phone" name="phone" autocomplete="tel" dir="ltr" data-i18n-ph="fm.phonePh" placeholder="+93 7XX XXX XXX">
-          </div>
-          <div class="field" id="field-message">
-            <label for="cf-message" data-i18n="fm.msg">Message</label>
-            <textarea id="cf-message" name="message" data-i18n-ph="fm.msgPh" placeholder="Table for 4 people tonight at 8pm…"></textarea>
-            <span class="err" data-i18n="fm.errMsg">Please write a short message.</span>
-          </div>
-          <button type="submit" class="btn btn--gold btn--block" data-i18n="fm.send">Send via WhatsApp</button>
-          <p class="form-note" data-i18n="fm.note">Your message opens in WhatsApp — nothing is stored on this website.</p>
-          <p class="form-success" id="formSuccess" data-i18n="fm.success">Thank you! WhatsApp should now be open with your message.</p>
-        </form>
-      </div>
-    </div>
-    <div class="container">
-      <div class="map-wrap reveal">
-        <iframe title="Bukhara Restaurant location" src="https://www.google.com/maps?q=34.530009,69.161181&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-</section>
+<!-- KEEP YOUR EXISTING HOME, ABOUT, MENU, GALLERY, CONTACT SECTIONS HERE -->
+<!-- (No changes needed to the HTML above, the script will handle the standalone logic) -->
+<!-- ... [PASTE YOUR EXISTING HTML SECTIONS HERE] ... -->
 
 <section class="page" id="page-admin">
   <header class="page-hero">
     <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=70" alt="Admin" data-fallback></div>
     <div class="container">
       <p class="eyebrow">Menu Manager</p>
-      <h1>Restaurant dashboard</h1>
-      <p class="section-lead">Manage your menu, orders, site settings, and staff.</p>
+      <h1>Restaurant Dashboard</h1>
+      <p class="section-lead">Manage your menu locally. When you are finished, click "Export" to save your changes and upload them to your website.</p>
     </div>
   </header>
   <section class="section">
     <div class="container">
-      <div id="adminStatus" class="admin-status info"></div>
+      <div id="adminStatus" class="admin-status ok" style="display:block;">Local Mode: You are editing the menu in your browser. Click Export to save.</div>
 
-      <div id="adminLogin" class="admin-login-card" style="display:none;">
-        <h3>Sign in</h3>
-        <p>Only restaurant staff can edit the menu.</p>
-        <form id="adminLoginForm" autocomplete="on">
-          <div class="field"><label for="adminEmail">Email</label><input type="email" id="adminEmail" required autocomplete="username"></div>
-          <div class="field"><label for="adminPassword">Password</label><input type="password" id="adminPassword" required autocomplete="current-password"></div>
-          <button type="submit" class="btn btn--gold btn--block">Sign in</button>
-          <p class="admin-login-error" id="adminLoginError"></p>
-        </form>
-      </div>
-
-      <div id="adminPanels" style="display:none;">
+      <div id="adminPanels" style="display:block;">
         <div class="admin-toolbar">
-          <button class="btn btn--outline btn--sm" type="button" data-admin-export>Export</button>
-          <label class="btn btn--outline btn--sm" style="cursor:pointer">Import<input type="file" accept="application/json,.json" data-admin-import hidden></label>
-          <button class="btn btn--outline btn--sm" type="button" data-admin-reset>Reset</button>
-          <button class="btn btn--gold btn--sm" type="button" id="adminPublish">Publish</button>
-          <button class="btn btn--outline btn--sm" type="button" id="adminLogout">Sign out</button>
+          <button class="btn btn--gold btn--sm" type="button" data-admin-export>Export menu.json</button>
+          <label class="btn btn--outline btn--sm" style="cursor:pointer">Import menu.json<input type="file" accept="application/json,.json" data-admin-import hidden></label>
+          <button class="btn btn--outline btn--sm" type="button" data-admin-reset>Reset to Default</button>
         </div>
 
         <div class="admin-tabs">
           <button class="admin-tab-btn active" data-tab="menu">Menu & Items</button>
           <button class="admin-tab-btn" data-tab="categories">Categories</button>
-          <button class="admin-tab-btn" data-tab="orders">Orders <span id="adminOrderBadge" class="admin-tab-badge">0</span></button>
-          <button class="admin-tab-btn" data-tab="staff">Staff</button>
-          <button class="admin-tab-btn" data-tab="agencies">Agencies</button>
           <button class="admin-tab-btn" data-tab="settings">Site Settings</button>
         </div>
 
@@ -1019,12 +673,11 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
                 </div>
 
                 <div class="field">
-                  <label>Photo</label>
+                  <label>Photo URL</label>
                   <div class="admin-image-row">
                     <div class="admin-image-preview" id="af-preview"><span>No image</span></div>
                     <div style="flex:1;min-width:0">
                       <input id="af-img" type="text" placeholder="https://… image URL" style="margin-bottom:.4rem">
-                      <label class="btn btn--outline btn--sm" style="cursor:pointer">Upload photo<input type="file" accept="image/*" id="af-img-file" hidden></label>
                     </div>
                   </div>
                 </div>
@@ -1065,79 +718,20 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
           </div>
         </div>
 
-        <!-- TAB: ORDERS -->
-        <div id="tab-orders" class="admin-tab-content">
-          <div class="admin-card">
-            <h3>Incoming Orders <span id="ordersCount" style="font-size:.82rem;font-weight:400;color:var(--muted)"></span></h3>
-            <p style="font-size:.82rem;color:var(--muted);margin-bottom:.7rem">Updates in real time. Sound alert is ON.</p>
-            <div id="ordersList" style="max-width:800px"></div>
-          </div>
-        </div>
-
-        <!-- TAB: STAFF -->
-        <div id="tab-staff" class="admin-tab-content">
-          <div class="admin-grid">
-            <div class="admin-card">
-              <h3>Staff Members</h3>
-              <p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">Add workers so they can log in and manage the menu.</p>
-              <div id="staffList" class="staff-list"></div>
-            </div>
-            <div class="admin-card">
-              <h3>Add New Worker</h3>
-              <form id="addStaffForm" autocomplete="off">
-                <div class="field"><label>Worker Name</label><input id="staff-name" type="text" placeholder="e.g. Ahmad" required></div>
-                <div class="field"><label>Worker Email</label><input id="staff-email" type="email" placeholder="worker@bukhara.com" required></div>
-                <div class="field"><label>Password</label><input id="staff-pass" type="text" placeholder="Min 6 characters" required></div>
-                <button type="submit" class="btn btn--gold btn--sm" id="addStaffBtn">Create Worker Account</button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB: AGENCIES -->
-        <div id="tab-agencies" class="admin-tab-content">
-          <div class="admin-grid">
-            <div class="admin-card">
-              <h3>Your Agencies / Branches</h3>
-              <p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">
-                Customers will choose which agency receives their order. Each agency has its own phone &amp; WhatsApp.
-              </p>
-              <div id="agencyList"></div>
-            </div>
-            <div class="admin-card">
-              <h3 id="agencyFormTitle">Add new agency</h3>
-              <form id="adminAgencyForm" autocomplete="off">
-                <input type="hidden" id="af-agency-id">
-                <div class="field"><label for="af-agency-name">Agency Name *</label>
-                  <input id="af-agency-name" type="text" placeholder="e.g. Bukhara Karta-e-Chahar" required></div>
-                <div class="field"><label for="af-agency-phone">Phone Number</label>
-                  <input id="af-agency-phone" type="text" placeholder="+93 78 944 4222"></div>
-                <div class="field"><label for="af-agency-wa">WhatsApp Number (digits only) *</label>
-                  <input id="af-agency-wa" type="text" placeholder="93789444222" required></div>
-                <div class="admin-actions">
-                  <button type="submit" class="btn btn--gold btn--sm" id="af-agency-submit">Save agency</button>
-                  <button type="button" class="btn btn--outline btn--sm" id="af-agency-cancel" hidden>Cancel</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
         <!-- TAB: SETTINGS -->
         <div id="tab-settings" class="admin-tab-content">
           <div class="admin-card">
             <h3>Site Settings (Content, Logo & Contact)</h3>
-            <p style="font-size:.82rem;color:var(--muted);margin-bottom:.7rem">Change everything on your website here. No coding needed.</p>
+            <p style="font-size:.82rem;color:var(--muted);margin-bottom:.7rem">Change branding and contact info here. Remember to Export after saving!</p>
             <form id="siteContentForm" autocomplete="off">
               <h4>Brand & Header</h4>
               <div class="admin-row">
                 <div class="field">
-                  <label>Logo Image</label>
+                  <label>Logo URL</label>
                   <div class="admin-image-row">
                     <div class="admin-image-preview" id="sc-logo-preview"><span>No image</span></div>
                     <div style="flex:1;min-width:0">
                       <input id="sc-logo" type="text" placeholder="https://… image URL" style="margin-bottom:.4rem">
-                      <label class="btn btn--outline btn--sm" style="cursor:pointer">Upload Logo<input type="file" accept="image/*" id="sc-logo-file" hidden></label>
                     </div>
                   </div>
                 </div>
@@ -1161,12 +755,11 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
               <h4>Homepage Content</h4>
               <div class="admin-row">
                 <div class="field">
-                  <label>Hero Image</label>
+                  <label>Hero Image URL</label>
                   <div class="admin-image-row">
                     <div class="admin-image-preview" id="sc-hero-preview"><span>No image</span></div>
                     <div style="flex:1;min-width:0">
                       <input id="sc-hero-img" type="text" placeholder="https://… image URL" style="margin-bottom:.4rem">
-                      <label class="btn btn--outline btn--sm" style="cursor:pointer">Upload<input type="file" accept="image/*" id="sc-hero-img-file" hidden></label>
                     </div>
                   </div>
                 </div>
@@ -1176,24 +769,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
                 </div>
               </div>
               <div class="field"><label>Hero Subtitle</label><textarea id="sc-hero-sub" rows="2" placeholder="Luxurious Afghan and Pakistani dining..."></textarea></div>
-
-              <h4>About Page Content</h4>
-              <div class="admin-row">
-                <div class="field">
-                  <label>About Us Image</label>
-                  <div class="admin-image-row">
-                    <div class="admin-image-preview" id="sc-about-preview"><span>No image</span></div>
-                    <div style="flex:1;min-width:0">
-                      <input id="sc-about-img" type="text" placeholder="https://… image URL" style="margin-bottom:.4rem">
-                      <label class="btn btn--outline btn--sm" style="cursor:pointer">Upload<input type="file" accept="image/*" id="sc-about-img-file" hidden></label>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="field"><label>About Title</label><input id="sc-about-title" type="text" placeholder="A Kabul table for every hour"></div>
-                </div>
-              </div>
-              <div class="field"><label>About Paragraph</label><textarea id="sc-about-text" rows="3" placeholder="Bukhara Restaurant was built around..."></textarea></div>
 
               <button type="submit" class="btn btn--gold btn--block" style="margin-top:1rem;">Save All Settings</button>
             </form>
@@ -1207,169 +782,36 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#home" class="brand"><span class="brand-mark" id="dyn-footer-logo-wrap" aria-hidden="true"><span id="dyn-footer-logo-text">B</span><img id="dyn-footer-logo-img" style="display:none" src="" alt="Logo"></span><span class="brand-text"><strong id="dyn-footer-brand-name">Bukhara</strong><small id="dyn-footer-brand-sub">Restaurant · Kabul</small></span></a>
-        <p data-i18n="f.about">Luxurious Afghan and Pakistani dining beside Malalay Hospital in Karta-e-Chahar, Kabul. Open 24 hours.</p>
-        <div class="socials">
-          <a href="https://www.facebook.com/BukharaRestaurantKabul" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
-          <a href="mailto:bukhara.r@gmail.com" aria-label="Email" id="dyn-footer-email-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
-          <a class="dyn-wa-link" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="f.links">Quick Links</h4>
-        <ul>
-          <li><a href="#home" data-i18n="nav.home">Home</a></li>
-          <li><a href="#about" data-i18n="nav.about">About</a></li>
-          <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
-          <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="f.contact">Contact</h4>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="dyn-footer-addr">Beside Malalay Hospital, Karta-e-Chahar, Kabul</span></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+93789444222" dir="ltr" id="dyn-footer-phone">+93 78 944 4222</a></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="dyn-footer-hours">Open 24 hours, 7 days a week</span></div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="f.hours">Find Us</h4>
-        <ul>
-          <li><a href="https://www.google.com/maps?q=34.530009,69.161181" target="_blank" rel="noopener" data-i18n="f.directions">Get directions</a></li>
-          <li><a class="dyn-wa-link" href="#" target="_blank" rel="noopener" data-i18n="f.whatsapp">WhatsApp</a></li>
-          <li><a href="mailto:bukhara.r@gmail.com" id="dyn-footer-email" data-i18n="f.email">Email us</a></li>
-          <li><a href="tel:+93789444222" id="dyn-footer-call" data-i18n="f.call">Call the restaurant</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span data-i18n="f.rights">© 2026 Bukhara Restaurant. All rights reserved.</span>
-      <span class="fb-links"><a href="#admin">Menu Admin</a><a href="#home" data-i18n="f.top">Back to top ↑</a></span>
-    </div>
-  </div>
-</footer>
-
-<a class="wa-float dyn-wa-link" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
-</a>
-
-<button class="cart-fab" id="cartFab" type="button" aria-label="Open your order">
-  <span class="cart-count" id="cartCount">0</span>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
-  <span class="fab-total" id="cartFabTotal" data-i18n="cart.fabLabel">Your order</span>
-</button>
-
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
-  <header class="cart-head">
-    <h2 id="cartTitle" data-i18n="cart.title">Your Order</h2>
-    <button class="cart-close" id="cartClose" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-  </header>
-  <div class="cart-body" id="cartBody"></div>
-  <div class="cart-foot" id="cartFoot">
-    <div class="cart-summary" id="cartSummary"></div>
-    <div class="cart-fields">
-      <div>
-        <label for="cartAgency" style="display:block;font-size:.75rem;font-weight:700;margin-bottom:.25rem">
-          Send order to which branch? *
-        </label>
-        <select id="cartAgency" required style="font-weight:700;color:var(--gold-3);border-color:var(--gold);"></select>
-      </div>
-      <input type="text" id="cartName" autocomplete="name" data-i18n-ph="cart.namePh" placeholder="Your name">
-      <input type="tel" id="cartPhone" dir="ltr" autocomplete="tel" data-i18n-ph="cart.phonePh" placeholder="Your phone number">
-      <textarea id="cartNote" rows="2" data-i18n-ph="cart.notePh" placeholder="Address, table number or special requests…"></textarea>
-    </div>
-    <button class="btn btn--gold btn--block" id="cartCheckout" type="button">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
-      <span data-i18n="cart.checkout">Send order on WhatsApp</span>
-    </button>
-    <div class="cart-actions-row">
-      <button class="cart-clear" id="cartClear" type="button" data-i18n="cart.clear">Clear order</button>
-      <button class="cart-back-menu" id="cartBackMenu" type="button">Back to Menu</button>
-    </div>
-  </div>
-</aside>
-
-<div class="modal-overlay" id="extrasModal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3>Customize your order</h3>
-      <button class="cart-close" type="button" onclick="closeExtrasModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    </div>
-    <div class="modal-body" id="extrasModalBody"></div>
-    <div class="modal-foot">
-      <button class="btn btn--gold btn--block" type="button" id="extrasAddBtn">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-  <figure style="margin:0;display:grid;justify-items:center">
-    <img id="lbImg" src="" alt="">
-    <figcaption class="lb-cap" id="lbCap"></figcaption>
-  </figure>
-</div>
+<!-- KEEP YOUR EXISTING FOOTER, WHATSAPP FLOAT, CART DRAWER, MODALS -->
+<!-- ... [PASTE YOUR EXISTING HTML FOOTER AND POPUPS HERE] ... -->
 
 <script>
 (function () {
   'use strict';
 
-  const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyBE0MuPOHvCv9q1VoB8rClb8ZbHqBqsW-g",
-    authDomain: "bukhara-restaurant-454ac.firebaseapp.com",
-    projectId: "bukhara-restaurant-454ac",
-    storageBucket: "bukhara-restaurant-454ac.firebasestorage.app",
-    messagingSenderId: "255086252424",
-    appId: "1:255086252424:web:7eb96162fba943cc7caa3d",
-    measurementId: "G-RBSEGB5DQK"
-  };
+  /* =========================================
+     EMAILJS SETUP (PASTE YOUR KEYS HERE)
+     ========================================= */
+  const EMAILJS_PUBLIC_KEY = "EnUk_8WdQtE1MNkfS";   // <-- Get from EmailJS Account > General
+  const EMAILJS_SERVICE_ID = "service_t6hzf7n";   // <-- Get from EmailJS Email Services
+  const EMAILJS_TEMPLATE_ID = "template_ow95t12"; // <-- Get from EmailJS Email Templates
+  let EMAILJS_ENABLED = false;
 
-  const SUPER_ADMIN_EMAIL = 'eachakzai1385@gmail.com';
+  if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY_HERE" && typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    EMAILJS_ENABLED = true;
+    console.log("EmailJS initialized. Emails will be sent.");
+  } else {
+    console.log("EmailJS keys missing. Emails will not be sent.");
+  }
 
-  let db = null, auth = null, storage = null;
-  let FIREBASE_ON = false;
-  let currentUser = null;
-  let menuUnsubscribe = null;
-  let categoriesUnsubscribe = null;
-  let ordersUnsubscribe = null;
-  let contentUnsubscribe = null;
-  let usersUnsubscribe = null;
-  let agenciesUnsubscribe = null;
-  let seedingCategories = false;
-  let knownOrderIds = new Set();
-  let secondaryAuth = null;
-
-  try {
-    if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId && typeof firebase !== 'undefined') {
-      firebase.initializeApp(FIREBASE_CONFIG);
-      db = firebase.firestore();
-      auth = firebase.auth();
-      storage = firebase.storage();
-
-      // Logout on reload: no persistence
-      auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
-        .catch(e => console.error('Auth persistence error:', e));
-
-      const secondaryApp = firebase.initializeApp(FIREBASE_CONFIG, 'Secondary');
-      secondaryAuth = secondaryApp.auth();
-
-      FIREBASE_ON = true;
-    }
-  } catch (e) { console.error('Firebase init failed:', e); FIREBASE_ON = false; }
-
+  /* =========================================
+     LOCAL DATA STORAGE (NO FIREBASE)
+     ========================================= */
   const CURRENCY = '؋';
   const CART_KEY = 'bukhara-cart';
   const MENU_CACHE = 'bukhara-menu';
   const CATEGORIES_CACHE = 'bukhara-categories';
-  const ORDERS_CACHE = 'bukhara-orders';
   const CONTENT_CACHE = 'bukhara-site-content';
   const AGENCIES_CACHE = 'bukhara-agencies';
 
@@ -1621,8 +1063,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
   let CATEGORIES = [];
   let MENU = [];
-  let ORDERS = [];
-  let USERS = [];
   let AGENCIES = [];
   let ITEM_INDEX = {};
   let cart = [];
@@ -1640,7 +1080,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   const money = (n) => CURRENCY + ' ' + (Number(n) || 0).toLocaleString('en-US');
   const slugify = (s) => String(s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40);
   
-  // Debounce for search
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -1672,24 +1111,7 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
   }
 
-  function playOrderSound() {
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(880, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.1);
-      gain.gain.setValueAtTime(0.5, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.3);
-    } catch(e) { console.log('Audio alert not supported'); }
-  }
-
-  /* ============ SITE CONTENT (CMS) ============ */
+  /* ============ SITE CONTENT ============ */
   function loadLocalSiteContent(){
     try {
       const raw = localStorage.getItem(CONTENT_CACHE);
@@ -1699,18 +1121,8 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
 
   function initSiteContent(){
-    if (FIREBASE_ON){
-      if (contentUnsubscribe) try { contentUnsubscribe(); } catch(e){}
-      contentUnsubscribe = db.collection('settings').doc('siteContent').onSnapshot(doc => {
-        if (doc.exists){
-          siteContent = Object.assign(siteContent, doc.data());
-          applySiteContent();
-        }
-      });
-    } else {
-      siteContent = loadLocalSiteContent();
-      applySiteContent();
-    }
+    siteContent = loadLocalSiteContent();
+    applySiteContent();
   }
 
   function applySiteContent(){
@@ -1751,7 +1163,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     if (siteContent.hours) { $('#dyn-contact-hours').textContent = siteContent.hours; $('#dyn-footer-hours').textContent = siteContent.hours; }
     if (siteContent.waNumber) $$('.dyn-wa-link').forEach(el => el.href = 'https://wa.me/' + siteContent.waNumber.replace(/[^0-9]/g, ''));
 
-    // Only update form fields if the user is not currently typing in them
     const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
     if ($('#siteContentForm') && !isTyping){
       if (siteContent.logo){ $('#sc-logo').value = siteContent.logo; updateScPreview('sc-logo-preview', siteContent.logo); }
@@ -1766,9 +1177,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       if (siteContent.heroTitle) $('#sc-hero-title').value = siteContent.heroTitle;
       if (siteContent.heroTitle2) $('#sc-hero-title2').value = siteContent.heroTitle2;
       if (siteContent.heroSub) $('#sc-hero-sub').value = siteContent.heroSub;
-      if (siteContent.aboutImg){ $('#sc-about-img').value = siteContent.aboutImg; updateScPreview('sc-about-preview', siteContent.aboutImg); }
-      if (siteContent.aboutTitle) $('#sc-about-title').value = siteContent.aboutTitle;
-      if (siteContent.aboutText) $('#sc-about-text').value = siteContent.aboutText;
     }
   }
 
@@ -1782,41 +1190,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
     $('#sc-logo').addEventListener('input', function(){ updateScPreview('sc-logo-preview', this.value); });
     $('#sc-hero-img').addEventListener('input', function(){ updateScPreview('sc-hero-preview', this.value); });
-    $('#sc-about-img').addEventListener('input', function(){ updateScPreview('sc-about-preview', this.value); });
-
-    $('#sc-logo-file').addEventListener('change', async function(e){
-      const f = e.target.files[0]; if (!f) return;
-      const btnLabel = this.parentElement;
-      const origText = btnLabel.innerHTML;
-      btnLabel.innerHTML = '<span class="spinner"></span> Uploading...';
-      try {
-        const url = await uploadImageToStorage(f);
-        $('#sc-logo').value = url; updateScPreview('sc-logo-preview', url);
-      } catch(err) { alert('Upload failed: ' + err.message); }
-      finally { btnLabel.innerHTML = origText; }
-    });
-    $('#sc-hero-img-file').addEventListener('change', async function(e){
-      const f = e.target.files[0]; if (!f) return;
-      const btnLabel = this.parentElement;
-      const origText = btnLabel.innerHTML;
-      btnLabel.innerHTML = '<span class="spinner"></span> Uploading...';
-      try {
-        const url = await uploadImageToStorage(f);
-        $('#sc-hero-img').value = url; updateScPreview('sc-hero-preview', url);
-      } catch(err) { alert('Upload failed: ' + err.message); }
-      finally { btnLabel.innerHTML = origText; }
-    });
-    $('#sc-about-img-file').addEventListener('change', async function(e){
-      const f = e.target.files[0]; if (!f) return;
-      const btnLabel = this.parentElement;
-      const origText = btnLabel.innerHTML;
-      btnLabel.innerHTML = '<span class="spinner"></span> Uploading...';
-      try {
-        const url = await uploadImageToStorage(f);
-        $('#sc-about-img').value = url; updateScPreview('sc-about-preview', url);
-      } catch(err) { alert('Upload failed: ' + err.message); }
-      finally { btnLabel.innerHTML = origText; }
-    });
 
     $('#siteContentForm').addEventListener('submit', async function(e){
       e.preventDefault();
@@ -1829,48 +1202,16 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
         brandName: $('#sc-brand-name').value.trim(), brandSub: $('#sc-brand-sub').value.trim(), logo: $('#sc-logo').value.trim(),
         phone: $('#sc-contact-phone').value.trim(), waNumber: $('#sc-wa-number').value.trim(), email: $('#sc-contact-email').value.trim(),
         hours: $('#sc-contact-hours').value.trim(), address: $('#sc-contact-addr').value.trim(),
-        heroImg: $('#sc-hero-img').value.trim(), heroTitle: $('#sc-hero-title').value.trim(), heroTitle2: $('#sc-hero-title2').value.trim(), heroSub: $('#sc-hero-sub').value.trim(),
-        aboutImg: $('#sc-about-img').value.trim(), aboutTitle: $('#sc-about-title').value.trim(), aboutText: $('#sc-about-text').value.trim()
+        heroImg: $('#sc-hero-img').value.trim(), heroTitle: $('#sc-hero-title').value.trim(), heroTitle2: $('#sc-hero-title2').value.trim(), heroSub: $('#sc-hero-sub').value.trim()
       };
 
-      if (FIREBASE_ON && currentUser){
-        try { 
-          await db.collection('settings').doc('siteContent').set(data, { merge: true }); 
-          toast('Site settings saved successfully!'); 
-          document.activeElement.blur(); // Remove focus so data can update
-        } catch(err){ alert('Error: ' + err.message); }
-      } else {
-        siteContent = Object.assign(siteContent, data);
-        localStorage.setItem(CONTENT_CACHE, JSON.stringify(siteContent));
-        applySiteContent(); toast('Saved locally (Demo Mode)');
-      }
+      siteContent = Object.assign(siteContent, data);
+      localStorage.setItem(CONTENT_CACHE, JSON.stringify(siteContent));
+      applySiteContent(); 
+      toast('Settings saved locally!');
+      
       btn.innerHTML = origText;
       btn.disabled = false;
-    });
-  }
-
-  // REAL Firebase Storage Upload
-  function uploadImageToStorage(file) {
-    return new Promise(async (resolve, reject) => {
-      if (!FIREBASE_ON) {
-        // Fallback for demo mode: use Base64 (only for local testing)
-        const reader = new FileReader();
-        reader.onload = (e) => resolve(e.target.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-        return;
-      }
-      
-      try {
-        const filename = 'images/' + Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9.\-]/g, '');
-        const storageRef = storage.ref(filename);
-        const snapshot = await storageRef.put(file);
-        const downloadURL = await snapshot.ref.getDownloadURL();
-        resolve(downloadURL);
-      } catch (error) {
-        console.error("Storage upload error:", error);
-        reject(error);
-      }
     });
   }
 
@@ -1884,50 +1225,19 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
   function saveCategoriesLocal(){ try { localStorage.setItem(CATEGORIES_CACHE, JSON.stringify(CATEGORIES)); } catch(e){} }
 
-  async function seedCategoriesIfEmpty(){
-    if (!FIREBASE_ON || !currentUser || seedingCategories) return;
-    try {
-      const snap = await db.collection('categories').limit(1).get();
-      if (snap.empty){
-        seedingCategories = true;
-        for (let i = 0; i < DEFAULT_CATEGORIES.length; i++){
-          const c = DEFAULT_CATEGORIES[i];
-          await db.collection('categories').doc(c.id).set({ en:c.en, fa:c.fa, ps:c.ps, order:i });
-        }
-      }
-    } catch(e){ console.error(e); }
-    finally { seedingCategories = false; }
-  }
-
   function initCategories(){
-    if (FIREBASE_ON){
-      if (categoriesUnsubscribe) try { categoriesUnsubscribe(); } catch(e){}
-      categoriesUnsubscribe = db.collection('categories').onSnapshot(snap => {
-        if (snap.empty) CATEGORIES = deepClone(DEFAULT_CATEGORIES);
-        else {
-          CATEGORIES = snap.docs.map(d => Object.assign({ id:d.id }, d.data()));
-          CATEGORIES.sort((a,b) => (a.order || 0) - (b.order || 0));
-        }
-        renderAfterCategoryChange();
-      }, err => {
-        CATEGORIES = deepClone(DEFAULT_CATEGORIES);
-        renderAfterCategoryChange();
-      });
-    } else {
-      CATEGORIES = loadCategoriesLocal();
-      renderAfterCategoryChange();
-    }
+    CATEGORIES = loadCategoriesLocal();
+    renderAfterCategoryChange();
   }
 
   function renderAfterCategoryChange(){
-    if (!FIREBASE_ON){
-      CATEGORIES.forEach(c => {
-        if (!MENU.find(g => g.id === c.id)) MENU.push({ id: c.id, items: [] });
-      });
-      MENU = MENU.filter(g => CATEGORIES.some(c => c.id === g.id));
-      saveLocalMenu();
-    }
+    CATEGORIES.forEach(c => {
+      if (!MENU.find(g => g.id === c.id)) MENU.push({ id: c.id, items: [] });
+    });
+    MENU = MENU.filter(g => CATEGORIES.some(c => c.id === g.id));
+    saveLocalMenu();
     rebuildIndex();
+    
     if (state.menuFilter !== 'all' && !CATEGORIES.find(c => c.id === state.menuFilter)) state.menuFilter = 'all';
     renderMenu();
     if ($('#adminCategories')){
@@ -1940,15 +1250,10 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
   async function saveCategory(cat){
     const isNew = !CATEGORIES.find(c => c.id === cat.id);
-    cat.order = cat.order || Date.now();
-    if (FIREBASE_ON && currentUser){
-      await db.collection('categories').doc(cat.id).set({ en:cat.en, fa:cat.fa || cat.en, ps:cat.ps || cat.en, order:cat.order });
-    } else {
-      if (isNew) CATEGORIES.push(cat);
-      else CATEGORIES = CATEGORIES.map(c => c.id === cat.id ? cat : c);
-      if (isNew) MENU.push({ id: cat.id, items: [] });
-      saveCategoriesLocal(); saveLocalMenu(); renderAfterCategoryChange();
-    }
+    if (isNew) CATEGORIES.push(cat);
+    else CATEGORIES = CATEGORIES.map(c => c.id === cat.id ? cat : c);
+    if (isNew) MENU.push({ id: cat.id, items: [] });
+    saveCategoriesLocal(); saveLocalMenu(); renderAfterCategoryChange();
   }
 
   async function deleteCategory(id){
@@ -1960,16 +1265,11 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       ? 'Delete this category?\n\n' + itemsInCat.length + ' item(s) will be moved to "' + (firstOther.en || firstOther.id) + '".'
       : 'Delete this category?';
     if (!confirm(msg)) return;
-    if (FIREBASE_ON && currentUser){
-      for (const it of itemsInCat) await db.collection('menu').doc(it.id).update({ groupId: firstOther.id });
-      await db.collection('categories').doc(id).delete();
-    } else {
-      CATEGORIES = remaining;
-      const targetGrp = MENU.find(g => g.id === firstOther.id);
-      if (targetGrp) targetGrp.items.push(...itemsInCat);
-      MENU = MENU.filter(g => g.id !== id);
-      saveCategoriesLocal(); saveLocalMenu(); renderAfterCategoryChange();
-    }
+    CATEGORIES = remaining;
+    const targetGrp = MENU.find(g => g.id === firstOther.id);
+    if (targetGrp) targetGrp.items.push(...itemsInCat);
+    MENU = MENU.filter(g => g.id !== id);
+    saveCategoriesLocal(); saveLocalMenu(); renderAfterCategoryChange();
     if (state.menuFilter === id) state.menuFilter = 'all';
     toast('Category deleted');
   }
@@ -1999,78 +1299,31 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   function saveLocalAgencies(){ try { localStorage.setItem(AGENCIES_CACHE, JSON.stringify(AGENCIES)); } catch(e){} }
 
   function initAgencies(){
-    if (FIREBASE_ON){
-      if (agenciesUnsubscribe) try { agenciesUnsubscribe(); } catch(e){}
-      // Removed .orderBy('order') to catch any older agencies lacking the field
-      agenciesUnsubscribe = db.collection('agencies').onSnapshot(snap => {
-        if (snap.empty){
-          AGENCIES = loadLocalAgencies();
-          if (currentUser) {
-            AGENCIES.forEach(a => {
-              db.collection('agencies').doc(a.id).set({
-                name: a.name, phone: a.phone, whatsapp: a.whatsapp, order: a.order || Date.now()
-              }).catch(()=>{});
-            });
-          }
-        } else {
-          AGENCIES = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
-          // Sort them in JavaScript instead
-          AGENCIES.sort((a, b) => (a.order || 0) - (b.order || 0));
-        }
-        renderAgencyList();
-        renderCartAgencySelect();
-      }, err => {
-        console.error('agencies snapshot:', err);
-        AGENCIES = loadLocalAgencies();
-        renderAgencyList();
-        renderCartAgencySelect();
-      });
-    } else {
-      AGENCIES = loadLocalAgencies();
-      renderAgencyList();
-      renderCartAgencySelect();
-    }
+    AGENCIES = loadLocalAgencies();
+    renderAgencyList();
+    renderCartAgencySelect();
   }
 
-  async function saveAgency(agency){
-    if (FIREBASE_ON && currentUser){
-      if (agency.id) {
-        const { id, ...data } = agency;
-        await db.collection('agencies').doc(id).set(data, { merge: true });
-      } else {
-        await db.collection('agencies').add(Object.assign({}, agency, { order: Date.now() }));
-      }
+  function renderCartAgencySelect(){
+    const sel = $('#cartAgency'); if (!sel) return;
+    const prev = localStorage.getItem('selectedAgency') || sel.value;
+    
+    if (!AGENCIES.length) {
+      sel.innerHTML = '<option value="">— No branches available —</option>';
+      return;
+    }
+    
+    sel.innerHTML = AGENCIES.map(a => '<option value="' + esc(a.id) + '">' + esc(a.name) + '</option>').join('');
+    
+    if (prev && AGENCIES.find(a => String(a.id) === String(prev))) {
+      sel.value = prev;
     } else {
-      if (agency.id){
-        AGENCIES = AGENCIES.map(a => a.id === agency.id ? Object.assign({}, a, agency) : a);
-      } else {
-        agency.id = 'agency-' + Date.now();
-        agency.order = Date.now();
-        AGENCIES.push(agency);
-      }
-      saveLocalAgencies();
-      renderAgencyList();
-      renderCartAgencySelect();
+      sel.value = AGENCIES[0].id;
     }
-  }
-
-  async function deleteAgency(id){
-    if (!id) return;
-    if (!confirm('Delete this agency? Customers will no longer be able to send orders to it.')) return;
-    try {
-      if (FIREBASE_ON && currentUser){
-        await db.collection('agencies').doc(id).delete();
-      } else {
-        AGENCIES = AGENCIES.filter(a => a.id !== id);
-        saveLocalAgencies();
-        renderAgencyList();
-        renderCartAgencySelect();
-      }
-      toast('Agency deleted successfully');
-    } catch (err) {
-      console.error(err);
-      alert('Failed to delete agency: ' + err.message + '\n\nMake sure you have deployed the latest Firestore rules!');
-    }
+    
+    sel.onchange = function() {
+      localStorage.setItem('selectedAgency', this.value);
+    };
   }
 
   function renderAgencyList(){
@@ -2094,252 +1347,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     ).join('');
   }
 
-  function renderCartAgencySelect(){
-    const sel = $('#cartAgency'); if (!sel) return;
-    const prev = sel.value;
-    if (!AGENCIES.length) {
-      sel.innerHTML = '<option value="">— No branches available —</option>';
-      return;
-    }
-    sel.innerHTML = AGENCIES.map(a => '<option value="' + esc(a.id) + '">' + esc(a.name) + '</option>').join('');
-    if (prev && AGENCIES.find(a => String(a.id) === String(prev))) {
-      sel.value = prev;
-    } else {
-      sel.value = AGENCIES[0].id;
-    }
-  }
-
-  /* ============ ORDERS ============ */
-  function loadLocalOrders(){
-    try {
-      const raw = localStorage.getItem(ORDERS_CACHE);
-      const arr = raw ? JSON.parse(raw) : [];
-      return Array.isArray(arr) ? arr : [];
-    } catch(e){ return []; }
-  }
-  function saveLocalOrders(){ try { localStorage.setItem(ORDERS_CACHE, JSON.stringify(ORDERS)); } catch(e){} }
-
-  function initOrders(){
-    if (!FIREBASE_ON){
-      ORDERS = loadLocalOrders();
-      renderOrders();
-      return;
-    }
-    if (ordersUnsubscribe) try { ordersUnsubscribe(); } catch(e){}
-    if (!currentUser){ ORDERS = []; renderOrders(); return; }
-    ordersUnsubscribe = db.collection('orders').orderBy('createdAt', 'desc').limit(50).onSnapshot(snap => {
-      const newOrders = snap.docs.map(d => {
-        const data = d.data();
-        let ts = data.createdAt;
-        if (ts && typeof ts.toDate === 'function') ts = ts.toDate();
-        else if (ts && typeof ts === 'object' && ts.seconds) ts = new Date(ts.seconds * 1000);
-        else if (!(ts instanceof Date)) ts = null;
-        return Object.assign({ id: d.id }, data, { _time: ts });
-      });
-
-      let isNewOrder = false;
-      newOrders.forEach(o => {
-        if (o.status === 'new' && !knownOrderIds.has(o.id)) {
-          knownOrderIds.add(o.id);
-          isNewOrder = true;
-        } else {
-          knownOrderIds.add(o.id);
-        }
-      });
-
-      if (isNewOrder && ORDERS.length > 0) {
-        playOrderSound();
-      }
-
-      ORDERS = newOrders;
-      renderOrders();
-    }, err => {
-      console.error(err);
-      ORDERS = []; renderOrders();
-    });
-  }
-
-  function fmtTime(ts){
-    if (!ts) return '';
-    const d = ts instanceof Date ? ts : new Date(ts);
-    if (isNaN(d.getTime())) return '';
-    const diff = (Date.now() - d.getTime()) / 1000;
-    if (diff < 60) return 'just now';
-    if (diff < 3600) return Math.floor(diff/60) + ' min ago';
-    if (diff < 86400) return Math.floor(diff/3600) + ' hr ago';
-    return d.toLocaleString();
-  }
-
-  function renderOrders(){
-    const host = $('#ordersList'); if (!host) return;
-    const cnt = $('#ordersCount');
-    const badge = $('#adminOrderBadge');
-
-    if (FIREBASE_ON && !currentUser){ host.innerHTML = '<p class="admin-empty">Sign in to see orders.</p>'; if(cnt) cnt.textContent=''; if(badge){badge.style.display='none';} return; }
-
-    if (!ORDERS.length){
-      host.innerHTML = '<p class="admin-empty">No orders yet. Orders placed from the site will appear here.</p>';
-      if(cnt) cnt.textContent='';
-      if(badge) badge.style.display='none';
-      return;
-    }
-
-    const newCount = ORDERS.filter(o => o.status === 'new').length;
-    if (cnt) cnt.textContent = '(' + newCount + ' new)';
-
-    if (badge) {
-      if (newCount > 0) {
-        badge.textContent = newCount;
-        badge.style.display = 'inline-block';
-      } else {
-        badge.style.display = 'none';
-      }
-    }
-
-    host.innerHTML = ORDERS.map(o => {
-      const items = (o.items || []).map(it => {
-        const sz = it.sizeLabel ? ' (' + it.sizeLabel + ')' : '';
-        const ext = (it.extras && it.extras.length) ? '<br><span style="font-size:.9em;color:#8F6A2C">+ ' + it.extras.map(e=>e.name).join(', ') + '</span>' : '';
-        return '<li>' + esc(it.name) + sz + ' × ' + it.qty + ' — ' + money(it.lineTotal) + ext + '</li>';
-      }).join('');
-      return '<div class="order-card ' + (o.status === 'done' ? 'done' : 'new') + '">' +
-        '<div class="order-head">' +
-          '<strong>#' + esc((o.id || '').slice(0,6).toUpperCase()) + '</strong>' +
-          '<span class="order-time">' + esc(fmtTime(o._time)) + '</span>' +
-        '</div>' +
-        '<ul class="order-lines">' + items + '</ul>' +
-        '<div class="order-total">Total: ' + money(o.total) + '</div>' +
-        '<div class="order-customer">' +
-          (o.agencyName ? '<span><strong>Agency:</strong> ' + esc(o.agencyName) + '</span>' : '') +
-          (o.name ? '<span><strong>Name:</strong> ' + esc(o.name) + '</span>' : '') +
-          (o.phone ? '<span><strong>Phone:</strong> ' + esc(o.phone) + '</span>' : '') +
-          (o.note ? '<span><strong>Notes:</strong> ' + esc(o.note) + '</span>' : '') +
-        '</div>' +
-        '<div class="order-actions">' +
-          (o.status === 'new'
-            ? '<button type="button" class="btn btn--gold btn--sm" data-order-done="' + esc(o.id) + '">Mark done</button>'
-            : '<button type="button" class="btn btn--outline btn--sm" data-order-reopen="' + esc(o.id) + '">Reopen</button>') +
-          '<button type="button" class="btn btn--outline btn--sm" data-order-del="' + esc(o.id) + '">Delete</button>' +
-        '</div>' +
-      '</div>';
-    }).join('');
-  }
-
-  async function updateOrderStatus(id, status){
-    if (!FIREBASE_ON || !currentUser){
-      const o = ORDERS.find(x => x.id === id);
-      if (o){ o.status = status; saveLocalOrders(); renderOrders(); }
-      return;
-    }
-    try { await db.collection('orders').doc(id).update({ status }); toast('Order updated'); }
-    catch(e){ alert('Update failed: ' + e.message); }
-  }
-  async function deleteOrder(id){
-    if (!FIREBASE_ON || !currentUser){
-      ORDERS = ORDERS.filter(x => x.id !== id); saveLocalOrders(); renderOrders(); return;
-    }
-    if (!confirm('Delete this order permanently?')) return;
-    try { await db.collection('orders').doc(id).delete(); toast('Order deleted'); }
-    catch(e){ alert('Delete failed: ' + e.message); }
-  }
-
-  /* ============ STAFF ============ */
-  function initStaff(){
-    if (!FIREBASE_ON) return;
-
-    const isSuper = currentUser && currentUser.email === SUPER_ADMIN_EMAIL;
-    if (!isSuper){
-      USERS = [];
-      renderStaffList();
-      if (usersUnsubscribe) try { usersUnsubscribe(); } catch(e){}
-      return;
-    }
-
-    if (usersUnsubscribe) try { usersUnsubscribe(); } catch(e){}
-    usersUnsubscribe = db.collection('users').onSnapshot(snap => {
-      USERS = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
-      renderStaffList();
-    }, err => {
-      console.error('users snapshot:', err);
-      USERS = [];
-      renderStaffList();
-    });
-  }
-
-  function renderStaffList(){
-    const host = $('#staffList'); if (!host) return;
-    if (!USERS.length){ host.innerHTML = '<p class="admin-empty">No workers added yet.</p>'; return; }
-    host.innerHTML = USERS.map(u => {
-      return '<div class="staff-item">' +
-        '<span>' + esc(u.name || u.email) + '</span>' +
-        '<button type="button" class="btn btn--outline btn--sm" data-del-user="' + esc(u.id) + '" data-email="' + esc(u.email) + '">Remove</button>' +
-      '</div>';
-    }).join('');
-  }
-
-  function setupStaffForm(){
-    const form = $('#addStaffForm');
-    if (!form) return;
-
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (!FIREBASE_ON) { alert('Firebase must be connected to add staff.'); return; }
-
-      const name = $('#staff-name').value.trim();
-      const email = $('#staff-email').value.trim();
-      const pass = $('#staff-pass').value;
-      const btn = $('#addStaffBtn');
-
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span> Creating...';
-
-      try {
-        const userCredential = await secondaryAuth.createUserWithEmailAndPassword(email, pass);
-        const newUid = userCredential.user.uid;
-        await db.collection('users').doc(newUid).set({ name: name, email: email, role: 'staff' });
-        await secondaryAuth.signOut();
-        form.reset();
-        toast('Worker account created successfully!');
-      } catch(err) {
-        if (err.code === 'auth/email-already-in-use'){
-          try {
-            const reSign = await secondaryAuth.signInWithEmailAndPassword(email, pass);
-            const uid = reSign.user.uid;
-            await db.collection('users').doc(uid).set({ name: name, email: email, role: 'staff' });
-            await secondaryAuth.signOut();
-            form.reset();
-            toast('Worker re-activated with a new name/role.');
-          } catch(reErr){
-            alert(
-              'A Firebase Auth account already exists for this email, but the password does not match.\n\n' +
-              'Options:\n' +
-              '• Use a different email, OR\n' +
-              '• Reset the password in the Firebase Console → Authentication → Users, then try again with the new password.'
-            );
-          }
-        } else {
-          alert('Failed to create worker: ' + err.message);
-        }
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Create Worker Account';
-      }
-    });
-
-    $('#staffList').addEventListener('click', async e => {
-      const btn = e.target.closest('[data-del-user]');
-      if (!btn) return;
-      const uid = btn.dataset.delUser;
-
-      if (!confirm('Remove this worker? They will no longer appear in the list, but their Auth account remains. They will be blocked from logging in.')) return;
-
-      try {
-        await db.collection('users').doc(uid).delete();
-        toast('Worker removed from list');
-      } catch(err) { alert('Delete failed: ' + err.message); }
-    });
-  }
-
   /* ============ MENU ============ */
   function matchesSearch(item){
     if (!state.search) return true;
@@ -2351,17 +1358,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   function rebuildIndex(){
     ITEM_INDEX = {};
     MENU.forEach(g => (g.items || []).forEach(it => { it.groupId = g.id; ITEM_INDEX[it.id] = it; }));
-  }
-
-  function firestoreToMenu(items){
-    const groups = {};
-    CATEGORIES.forEach(c => groups[c.id] = { id:c.id, items:[] });
-    items.forEach(it => {
-      const gid = CATEGORIES.find(c => c.id === it.groupId) ? it.groupId : (CATEGORIES[0]?.id || 'afghan');
-      if (!groups[gid]) groups[gid] = { id:gid, items:[] };
-      groups[gid].items.push(it);
-    });
-    return CATEGORIES.map(c => groups[c.id]);
   }
 
   function loadLocalMenu(){
@@ -2381,33 +1377,11 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
 
   function initMenu(){
-    if (FIREBASE_ON){
-      if (menuUnsubscribe) try { menuUnsubscribe(); } catch(e){}
-      menuUnsubscribe = db.collection('menu').onSnapshot(snap => {
-        if (snap.empty && currentUser) {
-          publishDemoMenuToFirebase(true);
-        } else {
-          const items = snap.docs.map(d => Object.assign({ id:d.id }, d.data()));
-          MENU = firestoreToMenu(items);
-          renderAllAfterMenuChange();
-        }
-      }, err => { MENU = loadLocalMenu(); renderAllAfterMenuChange(); });
-    } else {
-      MENU = loadLocalMenu();
-      renderAllAfterMenuChange();
-    }
+    MENU = loadLocalMenu();
+    renderAllAfterMenuChange();
   }
 
   async function saveMenuItem(item){
-    if (FIREBASE_ON && currentUser){
-      const existing = ITEM_INDEX[item.id];
-      await db.collection('menu').doc(item.id).set({
-        groupId:item.groupId, img:item.img, n:item.n, d:item.d,
-        tag:item.tag || null, sizes:item.sizes, order:(existing && existing.order) || Date.now(),
-        soldOut: item.soldOut || false, extras: item.extras || []
-      });
-      return;
-    }
     MENU.forEach(g => { g.items = (g.items||[]).filter(it => it.id !== item.id && it.id !== editingId); });
     let grp = MENU.find(g => g.id === item.groupId);
     if (!grp){ grp = { id:item.groupId, items:[] }; MENU.push(grp); }
@@ -2417,7 +1391,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
 
   async function deleteMenuItem(id){
-    if (FIREBASE_ON && currentUser){ await db.collection('menu').doc(id).delete(); return; }
     MENU.forEach(g => { g.items = (g.items||[]).filter(it => it.id !== id); });
     cart = cart.filter(l => l.id !== id);
     saveCart(); saveLocalMenu(); renderAllAfterMenuChange();
@@ -2426,157 +1399,10 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   async function toggleSoldOut(id, currentStatus){
     const item = ITEM_INDEX[id]; if (!item) return;
     const newStatus = !currentStatus;
-
-    if (FIREBASE_ON && currentUser){
-      try {
-        await db.collection('menu').doc(id).update({ soldOut: newStatus });
-        toast(newStatus ? 'Marked as Sold Out' : 'Back in Stock');
-      } catch(e){ alert('Failed: ' + e.message); }
-    } else {
-      item.soldOut = newStatus;
-      saveLocalMenu();
-      renderAllAfterMenuChange();
-      toast(newStatus ? 'Marked as Sold Out' : 'Back in Stock');
-    }
-  }
-
-  async function publishDemoMenuToFirebase(silent){
-    if (!FIREBASE_ON || !currentUser){ if(!silent) toast('Sign in first.'); return; }
-    if (!silent && !confirm('Upload your local menu (and categories) to the live Firebase database?')) return;
-
-    if(!silent) toast('Uploading to Firebase...');
-
-    let localCats = [];
-    let localMenu = [];
-    try {
-      const rawCats = localStorage.getItem(CATEGORIES_CACHE);
-      const rawMenu = localStorage.getItem(MENU_CACHE);
-      if (rawCats) localCats = JSON.parse(rawCats);
-      if (rawMenu) localMenu = JSON.parse(rawMenu);
-    } catch(e) {}
-
-    if (!localCats.length) localCats = deepClone(DEFAULT_CATEGORIES);
-    if (!localMenu.length) localMenu = deepClone(DEFAULT_MENU);
-
-    try {
-      for (let i = 0; i < localCats.length; i++){
-        const c = localCats[i];
-        await db.collection('categories').doc(c.id).set({ en:c.en, fa:c.fa || c.en, ps:c.ps || c.en, order: Date.now() + i });
-      }
-
-      const itemsToUpload = [];
-      localMenu.forEach(g => {
-        (g.items || []).forEach(it => {
-          itemsToUpload.push(Object.assign({}, it, { groupId: g.id, order: Date.now() + itemsToUpload.length }));
-        });
-      });
-
-      for (const it of itemsToUpload){
-        await db.collection('menu').doc(it.id).set({
-          groupId: it.groupId,
-          img: it.img,
-          n: it.n,
-          d: it.d,
-          tag: it.tag || null,
-          sizes: it.sizes,
-          order: it.order,
-          soldOut: it.soldOut || false,
-          extras: it.extras || []
-        });
-      }
-
-      if(!silent) toast('Successfully uploaded to Cloud!');
-    } catch(err) {
-      if(!silent) alert('Upload failed. Check your Firebase Rules! Error: ' + err.message);
-    }
-  }
-
-  /* ============ AUTH ============ */
-  function setupAuth(){
-    if (!FIREBASE_ON){
-      currentUser = { email: 'demo@local' };
-      updateAdminUI();
-      return;
-    }
-
-    auth.onAuthStateChanged(async user => {
-      if (user){
-        // Block deleted users (except the super admin)
-        if (user.email !== SUPER_ADMIN_EMAIL){
-          let allowed = false;
-          try {
-            const doc = await db.collection('users').doc(user.uid).get();
-            allowed = doc.exists;
-          } catch(e){
-            allowed = (e.code !== 'permission-denied');
-          }
-          if (!allowed){
-            try { await auth.signOut(); } catch(_){}
-            toast('Your account has been removed. Please contact the administrator.');
-            return;
-          }
-        }
-        currentUser = user;
-        updateAdminUI();
-        seedCategoriesIfEmpty();
-        initOrders();
-        initStaff();
-        initAgencies();
-      } else {
-        currentUser = null;
-        if (ordersUnsubscribe) try { ordersUnsubscribe(); } catch(e){}
-        if (usersUnsubscribe)  try { usersUnsubscribe();  } catch(e){}
-        ORDERS = []; USERS = [];
-        renderOrders();
-        renderStaffList();
-        updateAdminUI();
-      }
-    });
-
-    const lf = $('#adminLoginForm');
-    if (lf) lf.addEventListener('submit', async e => {
-      e.preventDefault();
-      const email = $('#adminEmail').value.trim();
-      const pass = $('#adminPassword').value;
-      const err = $('#adminLoginError'); err.textContent = '';
-      try { await auth.signInWithEmailAndPassword(email, pass); lf.reset(); }
-      catch(ex){ err.textContent = ex.message || 'Sign-in failed'; }
-    });
-    const lo = $('#adminLogout');
-    if (lo) lo.addEventListener('click', async () => { await auth.signOut(); toast('Signed out'); });
-  }
-
-  function updateAdminUI(){
-    const loggedIn = Boolean(currentUser);
-    const isSuper = currentUser && currentUser.email === SUPER_ADMIN_EMAIL;
-
-    const loginCard = $('#adminLogin');
-    const panels = $('#adminPanels');
-    const status = $('#adminStatus');
-    const publishBtn = $('#adminPublish');
-    const logoutBtn = $('#adminLogout');
-
-    if (loginCard) loginCard.style.display = (loggedIn || !FIREBASE_ON) ? 'none' : 'block';
-    if (panels) panels.style.display = loggedIn ? 'block' : 'none';
-    if (logoutBtn) logoutBtn.style.display = (!FIREBASE_ON || !loggedIn) ? 'none' : 'inline-flex';
-    if (publishBtn) publishBtn.style.display = (!FIREBASE_ON || !loggedIn) ? 'none' : 'inline-flex';
-
-    $$('.admin-tab-btn[data-tab="staff"], .admin-tab-btn[data-tab="agencies"]').forEach(btn => {
-      btn.style.display = isSuper ? '' : 'none';
-      if (!isSuper && btn.classList.contains('active')){
-        const menuTab = $('.admin-tab-btn[data-tab="menu"]');
-        if (menuTab) menuTab.click();
-      }
-    });
-
-    if (status){
-      status.className = 'admin-status';
-      if (!FIREBASE_ON){ status.classList.add('info'); status.textContent = 'Demo mode — changes stay in this browser. Add Firebase config to sync to all devices.'; }
-      else if (loggedIn){
-        status.classList.add('ok');
-        status.textContent = 'Signed in as ' + (currentUser.email || 'admin') + (isSuper ? ' (Super Admin)' : ' (Staff)');
-      } else { status.classList.add('warn'); status.textContent = 'Sign in to edit the menu.'; }
-    }
+    item.soldOut = newStatus;
+    saveLocalMenu();
+    renderAllAfterMenuChange();
+    toast(newStatus ? 'Marked as Sold Out' : 'Back in Stock');
   }
 
   /* ============ CART ============ */
@@ -2673,7 +1499,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     renderCartAgencySelect();
   }
 
-  // Focus Trap for Cart Drawer
   let cartFocusTrap = null;
   function openCart(){
     renderCart();
@@ -2682,7 +1507,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     $('#cartDrawer').setAttribute('aria-hidden', 'false');
     document.body.classList.add('cart-open');
     
-    // Add focus trap
     const drawer = $('#cartDrawer');
     const focusableElements = drawer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     if (focusableElements.length > 0) {
@@ -2760,19 +1584,16 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     if (!cart.length) return;
 
     const sel = $('#cartAgency');
-    let agency = null;
+    let selectedId = sel ? sel.value : null;
     
-    if (sel && sel.value) {
-       agency = AGENCIES.find(a => String(a.id) === String(sel.value));
-    }
-    
-    // Fallback: If selection fails, use the first agency
-    if (!agency && AGENCIES.length > 0) {
-      agency = AGENCIES[0];
+    if (!selectedId && AGENCIES.length > 0) {
+      selectedId = AGENCIES[0].id;
     }
 
+    const agency = AGENCIES.find(a => String(a.id) === String(selectedId));
+
     if (!agency){
-      toast('No branch/agency available. Please contact us directly.');
+      toast('Error: Please select a valid branch from the dropdown.');
       return;
     }
 
@@ -2793,38 +1614,33 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     order.agencyPhone = agency.phone || '';
     order.agencyWhatsapp = agency.whatsapp || '';
 
-    const waUrl = 'https://wa.me/' + agencyWa + '?text=' + encodeURIComponent(buildWhatsAppText(order));
-    // Open window immediately to prevent popup blocker
+    const waText = buildWhatsAppText(order);
+    const waUrl = 'https://wa.me/' + agencyWa + '?text=' + encodeURIComponent(waText);
     const win = window.open(waUrl, '_blank', 'noopener');
 
-    if (FIREBASE_ON){
-      try {
-        await db.collection('orders').add(Object.assign({}, order, {
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          status: 'new'
-        }));
-      } catch(e){
-        console.error('order save failed:', e);
-        toast('Could not save order to database: ' + (e.message || 'unknown'));
-      }
-    } else {
-      ORDERS.unshift(Object.assign({ id: 'demo-' + Date.now() }, order, {
-        _time: new Date(), status: 'new'
-      }));
-      saveLocalOrders(); renderOrders();
+    if (EMAILJS_ENABLED) {
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        customer_name: order.name || 'Customer',
+        customer_phone: order.phone || 'Not provided',
+        agency_name: order.agencyName,
+        order_details: waText,
+        order_total: money(order.total)
+      }).catch(err => {
+        console.error('Email failed to send', err);
+      });
     }
 
     if (!win) {
       toast('Please allow popups to open WhatsApp.');
     } else {
-      toast('Order sent successfully!');
+      toast('Order sent to ' + agency.name + ' and Email!');
     }
     
     btn.innerHTML = origText;
     btn.disabled = false;
   }
 
-  /* ============ RENDER MENU / GALLERY / FILTERS ============ */
+  /* ============ RENDER MENU ============ */
   function renderFilterBar(host, keys, current, attr){
     if (!host) return;
     host.innerHTML = keys.map(key => {
@@ -2932,7 +1748,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
     $('#extrasModal').classList.add('open');
     
-    // Focus trap for extras
     const modal = $('.modal-box');
     const focusableElements = modal.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])');
     if (focusableElements.length > 0) {
@@ -3098,14 +1913,14 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
 
   function exportMenuJson(){
-    const payload = { categories: CATEGORIES, menu: MENU, agencies: AGENCIES };
+    const payload = { categories: CATEGORIES, menu: MENU, agencies: AGENCIES, siteContent: siteContent };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url; a.download = 'menu.json';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1500);
-    toast('menu.json downloaded');
+    toast('menu.json downloaded successfully!');
   }
 
   function importMenuJson(file){
@@ -3117,9 +1932,14 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
         if (Array.isArray(parsed) && parsed[0]?.items){ menu = parsed; cats = DEFAULT_CATEGORIES; }
         if (!Array.isArray(cats) || !Array.isArray(menu)) throw new Error('bad');
         CATEGORIES = cats; MENU = menu;
-        saveCategoriesLocal(); saveLocalMenu();
-        renderAfterCategoryChange(); renderAdminList(); resetAdminForm();
-        toast('Menu imported');
+        if (parsed.agencies) AGENCIES = parsed.agencies;
+        if (parsed.siteContent) siteContent = parsed.siteContent;
+        
+        saveCategoriesLocal(); saveLocalMenu(); saveLocalAgencies();
+        localStorage.setItem(CONTENT_CACHE, JSON.stringify(siteContent));
+        
+        renderAfterCategoryChange(); renderAdminList(); resetAdminForm(); applySiteContent();
+        toast('Menu imported successfully!');
       } catch(e){ alert('Invalid menu file.'); }
     };
     reader.readAsText(file);
@@ -3156,8 +1976,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     renderAdminList();
     renderCategoriesAdmin();
     setupSiteContentForm();
-    setupStaffForm();
-    renderAgencyList();
 
     $('#af-add-size').addEventListener('click', () => addSizeRow('regular',''));
     $('#af-add-extra').addEventListener('click', () => addExtraRow('', ''));
@@ -3172,19 +1990,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     });
 
     $('#af-img').addEventListener('input', function(){ updateAdminPreview(this.value); });
-    $('#af-img-file').addEventListener('change', async function(e){
-      const f = e.target.files && e.target.files[0]; if (!f) return;
-      const btnLabel = this.parentElement;
-      const origText = btnLabel.innerHTML;
-      btnLabel.innerHTML = '<span class="spinner"></span> Uploading...';
-      try {
-        const url = await uploadImageToStorage(f);
-        $('#af-img').value = url;
-        updateAdminPreview(url);
-        toast('Image uploaded');
-      } catch(ex){ alert('Upload failed: ' + (ex.message || 'unknown')); }
-      finally { btnLabel.innerHTML = origText; }
-    });
     $('#af-cancel').addEventListener('click', resetAdminForm);
 
     $('#adminForm').addEventListener('submit', async e => {
@@ -3233,7 +2038,7 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       try {
         await saveMenuItem(item);
         resetAdminForm();
-        if (!FIREBASE_ON){ renderAdminList(); renderMenu(); renderCart(); }
+        renderAdminList(); renderMenu(); renderCart();
         toast('Saved · ' + nameEn);
       } catch(ex){ alert('Save failed: ' + (ex.message || 'unknown')); }
       finally { btn.textContent = origText; btn.disabled = false; }
@@ -3270,84 +2075,11 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       if (del) deleteCategory(del.dataset.catDel);
     });
 
-    $('#ordersList').addEventListener('click', e => {
-      const done = e.target.closest('[data-order-done]');
-      if (done){ updateOrderStatus(done.dataset.orderDone, 'done'); return; }
-      const reopen = e.target.closest('[data-order-reopen]');
-      if (reopen){ updateOrderStatus(reopen.dataset.orderReopen, 'new'); return; }
-      const del = e.target.closest('[data-order-del]');
-      if (del) deleteOrder(del.dataset.orderDel);
-    });
-
     const exp = $('[data-admin-export]'); if (exp) exp.addEventListener('click', exportMenuJson);
     const imp = $('[data-admin-import]'); if (imp) imp.addEventListener('change', e => {
       const f = e.target.files && e.target.files[0]; if (f) importMenuJson(f); e.target.value = '';
     });
     const rst = $('[data-admin-reset]'); if (rst) rst.addEventListener('click', resetMenuToDefault);
-    const pub = $('#adminPublish'); if (pub) pub.addEventListener('click', () => publishDemoMenuToFirebase(false));
-
-    // ==== AGENCY FORM ====
-    const agencyForm = $('#adminAgencyForm');
-    if (agencyForm){
-      agencyForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        const id     = $('#af-agency-id').value;
-        const name   = $('#af-agency-name').value.trim();
-        const phone  = $('#af-agency-phone').value.trim();
-        const wa     = $('#af-agency-wa').value.trim().replace(/[^0-9]/g, '');
-        if (!name) { alert('Agency name is required.'); return; }
-        if (!wa)   { alert('WhatsApp number is required — orders get sent there.'); return; }
-        
-        const btn = $('#af-agency-submit');
-        const origText = btn.textContent;
-        btn.innerHTML = '<span class="spinner"></span> Saving...';
-        btn.disabled = true;
-
-        try {
-          await saveAgency({ id: id || null, name, phone, whatsapp: wa, order: Date.now() });
-          agencyForm.reset();
-          $('#af-agency-id').value = '';
-          $('#af-agency-submit').textContent = 'Save agency';
-          $('#af-agency-cancel').hidden = true;
-          toast('Agency saved');
-        } catch(ex){
-          alert('Save failed: ' + (ex.message || 'unknown'));
-        } finally {
-          btn.innerHTML = origText;
-          btn.disabled = false;
-        }
-      });
-
-      $('#af-agency-cancel').addEventListener('click', () => {
-        agencyForm.reset();
-        $('#af-agency-id').value = '';
-        $('#af-agency-submit').textContent = 'Save agency';
-        $('#af-agency-cancel').hidden = true;
-      });
-    }
-
-    const agencyListHost = $('#agencyList');
-    if (agencyListHost){
-      agencyListHost.addEventListener('click', async e => {
-        const editBtn = e.target.closest('[data-agency-edit]');
-        if (editBtn){
-          const a = AGENCIES.find(x => x.id === editBtn.dataset.agencyEdit);
-          if (!a) return;
-          $('#af-agency-id').value    = a.id;
-          $('#af-agency-name').value  = a.name || '';
-          $('#af-agency-phone').value = a.phone || '';
-          $('#af-agency-wa').value    = a.whatsapp || '';
-          $('#af-agency-submit').textContent = 'Update agency';
-          $('#af-agency-cancel').hidden = false;
-          return;
-        }
-        const delBtn = e.target.closest('[data-agency-del]');
-        if (delBtn){
-          try { await deleteAgency(delBtn.dataset.agencyDel); }
-          catch(ex){ alert('Delete failed: ' + (ex.message || 'unknown')); }
-        }
-      });
-    }
   }
 
   /* ============ LANGUAGE ============ */
@@ -3361,7 +2093,7 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     $$('[data-i18n-ph]').forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.setAttribute('placeholder', v); });
     $$('.lang-btn').forEach(btn => { btn.classList.toggle('active', btn.dataset.lang === lang); btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang)); });
     renderMenu(); renderGallery(); renderChips(); renderCart();
-    if ($('#adminList')){ renderAdminCategories(); renderAdminList(); renderCategoriesAdmin(); renderOrders(); renderStaffList(); renderAgencyList(); }
+    if ($('#adminList')){ renderAdminCategories(); renderAdminList(); renderCategoriesAdmin(); }
     document.title = t('meta.' + state.route);
     if (!silent) closeNav();
   }
@@ -3395,7 +2127,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     if (!fromHash && location.hash.replace('#','') !== route) history.replaceState(null,'','#' + route);
     window.scrollTo({ top: 0, behavior: 'auto' });
     closeNav(); closeCart(); syncHeader(); initReveal();
-    if (route === 'admin') updateAdminUI();
   }
 
   const navEl = $('#nav'), burger = $('#burger');
@@ -3552,9 +2283,7 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   }
 
   async function init(){
-    setupAuth();
     initCategories();
-    initOrders();
     initMenu();
     initSiteContent();
     initAgencies();
@@ -3571,7 +2300,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     bindImageFallbacks(document);
     initReveal();
     renderCart();
-    updateAdminUI();
 
     $$('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
 
