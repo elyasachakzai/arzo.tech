@@ -2,15 +2,11 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Bukhara Restaurant — Afghan &amp; Pakistani Dining in Kabul</title>
-<meta name="description" content="Bukhara Restaurant, beside Malalay Hospital in Karta-e-Chahar, Kabul. Luxurious Afghan and Pakistani cuisine, open 24 hours. Dine-in, drive-through and delivery.">
+<meta name="description" content="Bukhara Restaurant, beside Malalay Hospital in Karta-e-Chahar, Kabul. Luxurious Afghan and Pakistani cuisine, open 24 hours.">
 <meta name="theme-color" content="#0E0C0A">
 <meta name="color-scheme" content="light">
-<meta property="og:title" content="Bukhara Restaurant — Kabul">
-<meta property="og:description" content="Luxurious Afghan and Pakistani dining in Karta-e-Chahar, Kabul. Open 24 hours.">
-<meta property="og:type" content="restaurant">
-<meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230E0C0A'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23C6A15B' stroke-width='1.4'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' fill='%23E9D3A3'%3EB%3C/text%3E%3C/svg%3E">
 
@@ -52,7 +48,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--cream);color:var(--text);font-family:var(--font-body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:500;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body.nav-open,body.cart-open{overflow:hidden}
+body.nav-open,body.cart-open{overflow:hidden;position:fixed;width:100%;height:100%}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
@@ -145,82 +141,25 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
    BULLETPROOF MOBILE NAVIGATION (NO OVERLAPPING)
    ========================================================= */
 @media (max-width:960px){
-  /* Force header to be a solid layer on top */
-  .site-header {
-    background: #100C09 !important;
-    z-index: 1000 !important;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.1) !important;
-  }
-  
-  /* Ensure text and buttons in the header are white */
-  .site-header .brand-text strong,
-  .site-header .brand-text small,
-  .site-header .burger {
-    color: #fff !important;
-  }
-  .site-header .burger span {
-    background-color: #fff !important;
-  }
-  .site-header .lang-switch {
-    border-color: rgba(255,255,255,0.3) !important;
-    background: rgba(255,255,255,0.1) !important;
-  }
-  .site-header .lang-btn {
-    color: #fff !important;
-  }
-  .site-header .lang-btn.active {
-    color: #1A1408 !important;
-  }
+  .site-header { background: #100C09 !important; z-index: 1000 !important; box-shadow: 0 1px 0 rgba(255,255,255,0.1) !important; }
+  .site-header .brand-text strong, .site-header .brand-text small, .site-header .burger { color: #fff !important; }
+  .site-header .burger span { background-color: #fff !important; }
+  .site-header .lang-switch { border-color: rgba(255,255,255,0.3) !important; background: rgba(255,255,255,0.1) !important; }
+  .site-header .lang-btn { color: #fff !important; }
+  .site-header .lang-btn.active { color: #1A1408 !important; }
 
-  /* Position the menu panel below the header */
   .nav {
-    position: fixed !important;
-    top: 78px !important; /* Start exactly below the header */
-    left: 0 !important;
-    width: 100vw !important;
-    height: calc(100vh - 78px) !important;
-    background: #100C09 !important;
-    z-index: 999 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transition: opacity 0.3s ease, visibility 0.3s ease !important;
-    transform: none !important;
+    position: fixed !important; top: 78px !important; left: 0 !important;
+    width: 100vw !important; height: calc(100dvh - 78px) !important;
+    background: #100C09 !important; z-index: 999 !important;
+    display: flex !important; flex-direction: column !important;
+    opacity: 0 !important; visibility: hidden !important;
+    pointer-events: none !important; transition: opacity 0.3s ease, visibility 0.3s ease !important; transform: none !important;
   }
-
-  .nav.open {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  .nav-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 2rem 1rem !important;
-    gap: 1.5rem !important;
-    min-height: 0 !important;
-  }
-
-  .nav-link {
-    font-size: 1.35rem !important;
-    color: #F3ECE2 !important;
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-    font-family: var(--font-body) !important;
-    letter-spacing: 0.05em !important;
-  }
-
-  /* Make sure burger button is visible and clickable */
-  .burger {
-    display: flex !important;
-    z-index: 100001 !important;
-  }
+  .nav.open { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+  .nav-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; padding: 2rem 1rem !important; gap: 1.5rem !important; min-height: 0 !important; }
+  .nav-link { font-size: 1.35rem !important; color: #F3ECE2 !important; text-align: center !important; width: 100% !important; display: block !important; font-family: var(--font-body) !important; letter-spacing: 0.05em !important; }
+  .burger { display: flex !important; z-index: 100001 !important; }
 }
 
 @media (max-width:520px){.brand-text small{display:none}.lang-btn{padding:.3rem .5rem;font-size:.68rem}.brand-mark{width:40px;height:40px;font-size:1.05rem}.brand-text strong{font-size:1.12rem}}
@@ -477,16 +416,17 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .cart-overlay{position:fixed;inset:0;z-index:5000;background:rgba(8,6,5,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .cart-overlay.open{opacity:1;pointer-events:auto}
 
-.cart-drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;z-index:5001;width:min(430px,100%);background:var(--cream);display:flex;flex-direction:column;box-shadow:-24px 0 70px -30px rgba(16,12,9,.8);transform:translateX(100%);visibility:hidden;transition:transform .42s var(--ease),visibility .42s}
+/* THE FIX: height: 100dvh instead of 100vh to prevent mobile cutoff */
+.cart-drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;z-index:5001;width:min(430px,100%);height:100dvh;background:var(--cream);display:flex;flex-direction:column;box-shadow:-24px 0 70px -30px rgba(16,12,9,.8);transform:translateX(100%);visibility:hidden;transition:transform .42s var(--ease),visibility .42s}
 [dir="rtl"] .cart-drawer{transform:translateX(-100%);box-shadow:24px 0 70px -30px rgba(16,12,9,.8)}
 .cart-drawer.open{transform:translateX(0);visibility:visible}
 
-.cart-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 1.25rem;border-bottom:1px solid var(--line-soft);background:rgba(255,252,250,.9)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 1.25rem;border-bottom:1px solid var(--line-soft);background:rgba(255,252,250,.9);flex:0 0 auto}
 .cart-head h2{font-size:1.2rem}
 .cart-close{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-soft);color:var(--muted);transition:.25s;flex:0 0 auto}
 .cart-close:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-.cart-body{flex:1;overflow-y:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.7rem}
+.cart-body{flex:1 1 auto;min-height:180px;overflow-y:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.7rem}
 .cart-empty{margin:auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.55rem;padding:2rem 1rem;color:var(--muted)}
 .cart-empty .ce-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(201,164,92,.14);color:var(--gold-3);margin-bottom:.4rem}
 .cart-empty .ce-icon svg{width:28px;height:28px}
@@ -509,7 +449,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .cart-line-del{position:absolute;top:.45rem;inset-inline-end:.45rem;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#B4462F;font-size:1rem;line-height:1;transition:.2s}
 .cart-line-del:hover{background:rgba(180,70,47,.12)}
 
-.cart-foot{border-top:1px solid var(--line-soft);padding:1rem 1.15rem 1.25rem;background:rgba(255,252,250,.94);display:flex;flex-direction:column;gap:.7rem}
+.cart-foot{flex:0 0 auto;border-top:1px solid var(--line-soft);padding:1rem 1.15rem 1.25rem;background:rgba(255,252,250,.94);display:flex;flex-direction:column;gap:.7rem}
 .cart-drawer.is-empty .cart-foot{display:none}
 .cart-summary{display:flex;flex-direction:column;gap:.3rem}
 .sum-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.88rem;color:var(--muted)}
@@ -528,9 +468,9 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .cart-back-menu:hover{color:var(--ink)}
 
 /* EXTRAS MODAL */
-.modal-overlay{position:fixed;inset:0;z-index:6000;background:rgba(8,6,5,.7);backdrop-filter:blur(4px);display:none;place-items:center;padding:1rem}
+.modal-overlay{position:fixed;inset:0;z-index:6000;background:rgba(8,6,5,.7);backdrop-filter:blur(4px);display:none;place-items:center;padding:1rem;height:100dvh}
 .modal-overlay.open{display:grid;animation:pageIn .3s var(--ease)}
-.modal-box{background:var(--cream);width:100%;max-width:440px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;max-height:90vh}
+.modal-box{background:var(--cream);width:100%;max-width:440px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;max-height:90dvh}
 .modal-head{padding:1.2rem;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;background:#fff}
 .modal-head h3{font-size:1.15rem}
 .modal-body{padding:1.2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
@@ -602,6 +542,13 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 .cat-item .cat-id{font-family:monospace;font-size:.72rem;color:var(--muted);padding:2px 6px;background:var(--cream-2);border-radius:5px;flex:0 0 auto}
 .cat-item button{flex:0 0 auto;font-size:.72rem;padding:.3rem .65rem}
 
+/* STAFF MANAGEMENT */
+.staff-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
+.staff-item{display:flex;align-items:center;justify-content:space-between;padding:.6rem .8rem;background:#fff;border:1px solid var(--line-soft);border-radius:10px;font-size:.88rem}
+.staff-item span{font-weight:600;color:var(--text)}
+.staff-item .btn{padding:.3rem .6rem;font-size:.72rem;color:#B4462F;border-color:rgba(180,70,47,.3)}
+.staff-item .btn:hover{background:#B4462F;color:#fff;border-color:#B4462F}
+
 .order-card{background:#fff;border:1px solid var(--line-soft);border-radius:13px;padding:.85rem 1rem;margin-bottom:.65rem;font-size:.85rem;border-inline-start:3px solid var(--gold)}
 .order-card.done{opacity:.58;border-inline-start-color:#7DDA8A}
 .order-head{display:flex;justify-content:space-between;gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap;align-items:baseline}
@@ -633,19 +580,15 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45d
 
 /* Fix for mobile floating buttons covering footer */
 @media (max-width: 960px) {
-  .footer-bottom {
-    padding-bottom: 6rem !important; 
-  }
+  .footer-bottom { padding-bottom: 6rem !important; }
+  .cart-foot { padding: .8rem 1rem 1rem; gap: .5rem; }
+  .cart-fields input, .cart-fields textarea { padding: .5rem .7rem; font-size: .82rem; }
+  .cart-body { min-height: 150px; }
 }
 
 /* Fix page stretching on mobile */
-html, body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-}
-.page-hero, .site-footer, .hero {
-  width: 100% !important;
-}
+html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+.page-hero, .site-footer, .hero { width: 100% !important; }
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -1006,7 +949,7 @@ html, body {
     <div class="container">
       <p class="eyebrow">Menu Manager</p>
       <h1>Restaurant dashboard</h1>
-      <p class="section-lead">Manage your menu, orders, and site settings easily.</p>
+      <p class="section-lead">Manage your menu, orders, site settings, and staff.</p>
     </div>
   </header>
   <section class="section">
@@ -1037,6 +980,7 @@ html, body {
           <button class="admin-tab-btn active" data-tab="menu">Menu & Items</button>
           <button class="admin-tab-btn" data-tab="categories">Categories</button>
           <button class="admin-tab-btn" data-tab="orders">Orders <span id="adminOrderBadge" class="admin-tab-badge">0</span></button>
+          <button class="admin-tab-btn" data-tab="staff">Staff</button>
           <button class="admin-tab-btn" data-tab="settings">Site Settings</button>
         </div>
 
@@ -1125,6 +1069,26 @@ html, body {
             <h3>Incoming Orders <span id="ordersCount" style="font-size:.82rem;font-weight:400;color:var(--muted)"></span></h3>
             <p style="font-size:.82rem;color:var(--muted);margin-bottom:.7rem">Updates in real time. Sound alert is ON.</p>
             <div id="ordersList" style="max-width:800px"></div>
+          </div>
+        </div>
+
+        <!-- TAB: STAFF -->
+        <div id="tab-staff" class="admin-tab-content">
+          <div class="admin-grid">
+            <div class="admin-card">
+              <h3>Staff Members</h3>
+              <p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">Add workers so they can log in and manage the menu.</p>
+              <div id="staffList" class="staff-list"></div>
+            </div>
+            <div class="admin-card">
+              <h3>Add New Worker</h3>
+              <form id="addStaffForm" autocomplete="off">
+                <div class="field"><label>Worker Name</label><input id="staff-name" type="text" placeholder="e.g. Ahmad" required></div>
+                <div class="field"><label>Worker Email</label><input id="staff-email" type="email" placeholder="worker@bukhara.com" required></div>
+                <div class="field"><label>Password</label><input id="staff-pass" type="text" placeholder="Min 6 characters" required></div>
+                <button type="submit" class="btn btn--gold btn--sm" id="addStaffBtn">Create Worker Account</button>
+              </form>
+            </div>
           </div>
         </div>
 
@@ -1338,14 +1302,21 @@ html, body {
   let categoriesUnsubscribe = null;
   let ordersUnsubscribe = null;
   let contentUnsubscribe = null;
+  let usersUnsubscribe = null;
   let seedingCategories = false;
   let knownOrderIds = new Set();
+  let secondaryAuth = null;
 
   try {
     if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId && typeof firebase !== 'undefined') {
       firebase.initializeApp(FIREBASE_CONFIG);
       db = firebase.firestore();
       auth = firebase.auth();
+      
+      // Secondary app for creating users without logging out the admin
+      const secondaryApp = firebase.initializeApp(FIREBASE_CONFIG, 'Secondary');
+      secondaryAuth = secondaryApp.auth();
+      
       FIREBASE_ON = true;
     }
   } catch (e) { console.error('Firebase init failed:', e); FIREBASE_ON = false; }
@@ -1606,6 +1577,7 @@ html, body {
   let CATEGORIES = [];
   let MENU = [];
   let ORDERS = [];
+  let USERS = [];
   let ITEM_INDEX = {};
   let cart = [];
   let editingId = null;
@@ -2060,6 +2032,79 @@ html, body {
     catch(e){ alert('Delete failed: ' + e.message); }
   }
 
+  /* ============ STAFF MANAGEMENT ============ */
+  function initStaff(){
+    if (!FIREBASE_ON) return;
+    if (usersUnsubscribe) try { usersUnsubscribe(); } catch(e){}
+    usersUnsubscribe = db.collection('users').onSnapshot(snap => {
+      USERS = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      renderStaffList();
+    });
+  }
+
+  function renderStaffList(){
+    const host = $('#staffList'); if (!host) return;
+    if (!USERS.length){ host.innerHTML = '<p class="admin-empty">No workers added yet.</p>'; return; }
+    host.innerHTML = USERS.map(u => {
+      return '<div class="staff-item">' +
+        '<span>' + esc(u.name || u.email) + '</span>' +
+        '<button type="button" class="btn btn--outline btn--sm" data-del-user="' + esc(u.id) + '" data-email="' + esc(u.email) + '">Remove</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function setupStaffForm(){
+    const form = $('#addStaffForm');
+    if (!form) return;
+    
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!FIREBASE_ON) { alert('Firebase must be connected to add staff.'); return; }
+      
+      const name = $('#staff-name').value.trim();
+      const email = $('#staff-email').value.trim();
+      const pass = $('#staff-pass').value;
+      const btn = $('#addStaffBtn');
+      
+      btn.disabled = true;
+      btn.textContent = 'Creating...';
+      
+      try {
+        // Use secondary auth so we don't log the admin out
+        const userCredential = await secondaryAuth.createUserWithEmailAndPassword(email, pass);
+        const newUid = userCredential.user.uid;
+        
+        // Save to Firestore users collection
+        await db.collection('users').doc(newUid).set({ name: name, email: email, role: 'staff' });
+        
+        // Sign out of secondary app
+        await secondaryAuth.signOut();
+        
+        form.reset();
+        toast('Worker account created successfully!');
+      } catch(err) {
+        alert('Failed to create worker: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Create Worker Account';
+      }
+    });
+
+    // Handle Delete User from Firestore
+    $('#staffList').addEventListener('click', async e => {
+      const btn = e.target.closest('[data-del-user]');
+      if (!btn) return;
+      const uid = btn.dataset.delUser;
+      
+      if (!confirm('Remove this worker? They will no longer appear in the list, but their Auth account remains.')) return;
+      
+      try {
+        await db.collection('users').doc(uid).delete();
+        toast('Worker removed from list');
+      } catch(err) { alert('Delete failed: ' + err.message); }
+    });
+  }
+
   /* ============ MENU ============ */
   function matchesSearch(item){
     if (!state.search) return true;
@@ -2221,8 +2266,18 @@ html, body {
     auth.onAuthStateChanged(user => {
       currentUser = user;
       updateAdminUI();
-      if (user){ seedCategoriesIfEmpty(); initOrders(); }
-      else { if (ordersUnsubscribe) try { ordersUnsubscribe(); } catch(e){} ORDERS = []; renderOrders(); }
+      if (user){ 
+        seedCategoriesIfEmpty(); 
+        initOrders(); 
+        initStaff();
+      }
+      else { 
+        if (ordersUnsubscribe) try { ordersUnsubscribe(); } catch(e){} 
+        if (usersUnsubscribe) try { usersUnsubscribe(); } catch(e){} 
+        ORDERS = []; USERS = [];
+        renderOrders();
+        renderStaffList();
+      }
     });
     const lf = $('#adminLoginForm');
     if (lf) lf.addEventListener('submit', async e => {
@@ -2730,6 +2785,7 @@ html, body {
     renderAdminList();
     renderCategoriesAdmin();
     setupSiteContentForm();
+    setupStaffForm();
 
     $('#af-add-size').addEventListener('click', () => addSizeRow('regular',''));
     $('#af-add-extra').addEventListener('click', () => addExtraRow('', ''));
@@ -2860,7 +2916,7 @@ html, body {
     $$('[data-i18n-ph]').forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.setAttribute('placeholder', v); });
     $$('.lang-btn').forEach(btn => { btn.classList.toggle('active', btn.dataset.lang === lang); btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang)); });
     renderMenu(); renderGallery(); renderChips(); renderCart();
-    if ($('#adminList')){ renderAdminCategories(); renderAdminList(); renderCategoriesAdmin(); renderOrders(); }
+    if ($('#adminList')){ renderAdminCategories(); renderAdminList(); renderCategoriesAdmin(); renderOrders(); renderStaffList(); }
     document.title = t('meta.' + state.route);
     if (!silent) closeNav();
   }
