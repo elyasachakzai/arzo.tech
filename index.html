@@ -578,16 +578,22 @@ html, body {
 .page-hero, .site-footer, .hero {
   width: 100% !important;
 }
-  /* Bulletproof Mobile Navigation Overlay */
+  /* Mobile Navigation & Header Fix */
 @media (max-width: 960px) {
+  /* Force header to the absolute top layer */
+  .site-header {
+    z-index: 10000 !important;
+  }
+
+  /* Dark menu background sits right below the header */
   .nav {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background: #100C09 !important; /* Solid dark background */
-    z-index: 115 !important; /* Force it above everything */
+    background: #100C09 !important;
+    z-index: 9999 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -596,6 +602,7 @@ html, body {
     visibility: hidden !important;
     pointer-events: none !important;
     transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    padding-top: 60px !important; /* Leaves space at the top for the X button */
   }
 
   .nav.open {
@@ -609,7 +616,6 @@ html, body {
     flex-direction: column !important;
     gap: 1.5rem !important;
     width: 100% !important;
-    padding: 2rem !important;
   }
 
   .nav-link {
@@ -618,6 +624,8 @@ html, body {
     text-align: center !important;
     display: block !important;
   }
+}
+
 }
 </style>
 </head>
