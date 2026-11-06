@@ -8,12 +8,6 @@
 <meta name="theme-color" content="#0E0C0A">
 <meta name="color-scheme" content="light">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bukhara Restaurant — Kabul">
-<meta property="og:description" content="Luxurious Afghan and Pakistani dining beside Malalay Hospital.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80">
-
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230E0C0A'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23C6A15B' stroke-width='1.4'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' fill='%23E9D3A3'%3EB%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +27,6 @@
 </script>
 
 <style>
-/* ... [KEEP ALL YOUR EXISTING CSS HERE - NO CHANGES NEEDED] ... */
 *,*::before,*::after{box-sizing:border-box}
 :root{
   --ink:#100C09;--ink-2:#18120E;--ink-3:#241C16;
@@ -610,9 +603,303 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
 <main id="main">
 
-<!-- KEEP YOUR EXISTING HOME, ABOUT, MENU, GALLERY, CONTACT SECTIONS HERE -->
-<!-- (No changes needed to the HTML above, the script will handle the standalone logic) -->
-<!-- ... [PASTE YOUR EXISTING HTML SECTIONS HERE] ... -->
+<section class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-media"><img id="dyn-hero-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=70" alt="Dining room at Bukhara Restaurant" data-fallback fetchpriority="high"></div>
+    <div class="container hero-inner">
+      <div class="open-pill"><i></i><span data-i18n="hero.openNow">Open now · 24 hours</span></div>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Karta-e-Chahar · Kabul</p>
+      <h1 id="dyn-hero-title"><span data-i18n="hero.t1">A Taste of</span><br><em data-i18n="hero.t2">Bukhara</em></h1>
+      <p class="hero-lead" id="dyn-hero-sub" data-i18n="hero.sub">Luxurious Afghan and Pakistani dining beside Malalay Hospital — prepared fresh and served around the clock.</p>
+      <div class="hero-cta">
+        <a class="btn btn--gold" href="#menu"><span data-i18n="hero.cta1">Explore the Menu</span>
+          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost dyn-wa-link" href="#" target="_blank" rel="noopener" data-i18n="hero.cta2">Reserve on WhatsApp</a>
+      </div>
+      <ul class="hero-facts">
+        <li><strong>4.3<span class="star">★</span></strong><span data-i18n="fact.rating">978 Google reviews</span></li>
+        <li><strong data-i18n="fact.openV">24/7</strong><span data-i18n="fact.open">Open 24 hours</span></li>
+        <li><strong data-i18n="fact.branchV">Karta-e-Chahar</strong><span data-i18n="fact.branch">Kabul, Afghanistan</span></li>
+      </ul>
+    </div>
+    <button class="scroll-cue" type="button" aria-label="Scroll" id="scrollCue"></button>
+  </section>
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Kabuli Pulao</span><span>Chicken Handi</span><span>Seekh Kebab</span><span>Mantu</span><span>Bolani</span><span>Chopan Kebab</span><span>Fresh Naan</span><span>Doogh</span>
+      <span>Kabuli Pulao</span><span>Chicken Handi</span><span>Seekh Kebab</span><span>Mantu</span><span>Bolani</span><span>Chopan Kebab</span><span>Fresh Naan</span><span>Doogh</span>
+    </div>
+  </div>
+  <section class="section" id="intro">
+    <div class="container split">
+      <div class="split-media reveal">
+        <div class="media media--tall">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=70" alt="Table setting" loading="lazy" data-fallback>
+          <div class="media-badge"><strong>4.3★</strong><span data-i18n="intro.badge">Guest rating</span></div>
+        </div>
+      </div>
+      <div class="split-body reveal" data-delay="1">
+        <p class="eyebrow" data-i18n="intro.eyebrow">Welcome to Bukhara</p>
+        <h2 class="section-title" data-i18n="intro.title">Where Afghan hospitality meets fine dining</h2>
+        <p class="section-lead" data-i18n="intro.p1">Bukhara Restaurant brings together the rich flavours of Afghan and Pakistani cuisine in an elegant setting in Karta-e-Chahar, Kabul.</p>
+        <p class="section-lead" style="margin-top:1rem" data-i18n="intro.p2">Whether it is a family dinner, a business meeting or a late-night meal, our doors are open 24 hours a day.</p>
+        <div class="split-stats">
+          <div class="stat"><strong>24/7</strong><span data-i18n="intro.s1">Always open</span></div>
+          <div class="stat"><strong>978+</strong><span data-i18n="intro.s2">Google reviews</span></div>
+        </div>
+        <a class="btn btn--outline" href="#about"><span data-i18n="intro.btn">Our Story</span>
+          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream2">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow" data-i18n="dishes.eyebrow">Signature Dishes</p>
+        <h2 class="section-title" data-i18n="dishes.title">Crafted to be remembered</h2>
+        <p class="section-lead" data-i18n="dishes.sub">A selection of the dishes our guests keep coming back for.</p>
+      </div>
+      <div class="grid-4">
+        <article class="dish-card reveal">
+          <div class="media"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=70" alt="Chicken Handi" loading="lazy" data-fallback></div>
+          <div class="dish-card-body"><h3 data-i18n="d1.n">Chicken Handi</h3><p data-i18n="d1.d">Slow-cooked chicken in a rich, spiced tomato and cream sauce.</p></div>
+        </article>
+        <article class="dish-card reveal" data-delay="1">
+          <div class="media"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=70" alt="Wings" loading="lazy" data-fallback></div>
+          <div class="dish-card-body"><h3 data-i18n="d2.n">Bukhara Wings</h3><p data-i18n="d2.d">Crispy grilled wings with our house seasoning and dipping sauce.</p></div>
+        </article>
+        <article class="dish-card reveal" data-delay="2">
+          <div class="media"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=70" alt="Kabuli Pulao" loading="lazy" data-fallback></div>
+          <div class="dish-card-body"><h3 data-i18n="d3.n">Kabuli Pulao</h3><p data-i18n="d3.d">Fragrant basmati rice with tender lamb, carrots, raisins and almonds.</p></div>
+        </article>
+        <article class="dish-card reveal" data-delay="3">
+          <div class="media"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=70" alt="Seekh kebab" loading="lazy" data-fallback></div>
+          <div class="dish-card-body"><h3 data-i18n="d4.n">Seekh Kebab</h3><p data-i18n="d4.d">Hand-minced kebabs grilled over charcoal, served with fresh naan.</p></div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:clamp(2rem,4vw,2.8rem)" class="reveal">
+        <a class="btn btn--dark" href="#menu"><span data-i18n="dishes.btn">View Full Menu</span>
+          <svg class="icon-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow" data-i18n="why.eyebrow">Why Bukhara</p>
+        <h2 class="section-title" data-i18n="why.title">An experience, not just a meal</h2>
+      </div>
+      <div class="grid-4">
+        <article class="feature reveal"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 data-i18n="w1.t">Open 24 Hours</h3><p data-i18n="w1.d">Early breakfast or a midnight dinner — we are always ready to serve you.</p></article>
+        <article class="feature reveal" data-delay="1"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1.5 3-4.5 4.5-4.5 8a4.5 4.5 0 0 0 9 0c0-3.5-3-5-4.5-8z"/><path d="M5 21h14"/></svg></div><h3 data-i18n="w2.t">Authentic Flavours</h3><p data-i18n="w2.d">Traditional Afghan and Pakistani recipes prepared by experienced chefs.</p></article>
+        <article class="feature reveal" data-delay="2"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div><h3 data-i18n="w3.t">Elegant Atmosphere</h3><p data-i18n="w3.d">A luxurious, spotless dining room designed for families and business guests.</p></article>
+        <article class="feature reveal" data-delay="3"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div><h3 data-i18n="w4.t">Delivery &amp; Drive-Through</h3><p data-i18n="w4.d">Dine in, drive through, or order no-contact delivery to your door.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow" data-i18n="testi.eyebrow">Guest Reviews</p>
+        <h2 class="section-title" data-i18n="testi.title">What our guests say</h2>
+        <p class="section-lead" data-i18n="testi.sub">Rated 4.3 out of 5 from 978 reviews on Google.</p>
+      </div>
+      <div class="grid-3">
+        <article class="quote-card reveal">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote data-i18n="r1.q">An exceptional dining experience! Truly one of the most luxurious restaurants, with a great sense of class and elegance. The food was outstanding.</blockquote>
+          <div class="quote-person"><span class="avatar" aria-hidden="true">MA</span><span><strong data-i18n="r1.n">Makhachov Armani</strong><span data-i18n="r1.r">Local Guide · Google review</span></span></div>
+        </article>
+        <article class="quote-card reveal" data-delay="1">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote data-i18n="r2.q">Amazing! I was pleasantly impressed by Bukhara Restaurant in Kabul. I ordered the Chicken Handi, fresh watermelon juice and Afghan bread — all of it tasted fresh and wonderful.</blockquote>
+          <div class="quote-person"><span class="avatar" aria-hidden="true">SG</span><span><strong data-i18n="r2.n">S G</strong><span data-i18n="r2.r">Local Guide · Google review</span></span></div>
+        </article>
+        <article class="quote-card reveal" data-delay="2">
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <blockquote data-i18n="r3.q">Bukhara Restaurant is truly one of the finest and most luxurious restaurants in Kabul. From the moment you enter, you can feel the elegant and welcoming atmosphere.</blockquote>
+          <div class="quote-person"><span class="avatar" aria-hidden="true">RA</span><span><strong data-i18n="r3.n">Rabee Azizi</strong><span data-i18n="r3.r">Local Guide · Google review</span></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="container"><div class="reveal">
+      <h2 data-i18n="cta.title">Reserve your table today</h2>
+      <p data-i18n="cta.sub">Call us or send a message on WhatsApp — we are open 24 hours a day.</p>
+      <div class="cta-actions">
+        <a class="btn btn--gold" href="tel:+93789444222" id="dyn-cta-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span id="dyn-cta-call-text">Call +93 78 944 4222</span></a>
+        <a class="btn btn--ghost dyn-wa-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
+          <span data-i18n="cta.wa">Chat on WhatsApp</span></a>
+      </div>
+    </div></div>
+  </section>
+</section>
+
+<section class="page" id="page-about">
+  <header class="page-hero">
+    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=70" alt="Dining hall" data-fallback></div>
+    <div class="container">
+      <p class="eyebrow" data-i18n="ab.eyebrow">About Us</p>
+      <h1 id="dyn-about-hero-title" data-i18n="ab.title">A Kabul table for every hour</h1>
+      <p class="section-lead" id="dyn-about-hero-lead" data-i18n="ab.lead">Bukhara Restaurant was built around a simple idea: that great food and genuine hospitality should be available to everyone, at any hour.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container split">
+      <div class="split-body reveal">
+        <p class="eyebrow" data-i18n="ab.eyebrow2">Our Story</p>
+        <h2 class="section-title" id="dyn-about-section-title" data-i18n="ab.h1">From a family kitchen to a Kabul landmark</h2>
+        <p class="section-lead" id="dyn-about-section-text" data-i18n="ab.p1">Our kitchen is rooted in the cooking of Afghanistan and the wider region — rice dishes slow-steamed with lamb and carrots, kebabs grilled over charcoal, and handi dishes simmered for hours.</p>
+      </div>
+      <div class="split-media reveal" data-delay="1">
+        <div class="media media--tall">
+          <img id="dyn-about-img" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1000&q=70" alt="Fresh food" loading="lazy" data-fallback>
+          <div class="media-badge"><strong>24/7</strong><span data-i18n="ab.badge">Open every day</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--cream2">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow" data-i18n="ab.vEyebrow">What Defines Us</p>
+        <h2 class="section-title" data-i18n="ab.vTitle">Four things we never compromise on</h2>
+      </div>
+      <div class="grid-4">
+        <article class="feature reveal"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 data-i18n="ab.v1t">Hospitality</h3><p data-i18n="ab.v1d">Every guest is received the Afghan way — with respect, warmth and generosity.</p></article>
+        <article class="feature reveal" data-delay="1"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3 data-i18n="ab.v2t">Quality</h3><p data-i18n="ab.v2d">Fresh ingredients, careful preparation and consistent standards in every plate.</p></article>
+        <article class="feature reveal" data-delay="2"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9a8 8 0 0 1 16 0v10"/><path d="M2 19h20"/><path d="M9 19v-4a3 3 0 0 1 6 0v4"/></svg></div><h3 data-i18n="ab.v3t">Tradition</h3><p data-i18n="ab.v3d">Recipes passed down through generations, cooked the way they were meant to be.</p></article>
+        <article class="feature reveal" data-delay="3"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M10 12h4v4h-4z"/></svg></div><h3 data-i18n="ab.v4t">Comfort</h3><p data-i18n="ab.v4d">A clean, calm and elegant space that works for families and business meetings alike.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="container"><div class="reveal">
+      <h2 data-i18n="ab.ctaTitle">Come and taste the difference</h2>
+      <p data-i18n="ab.ctaSub">Find us beside Malalay Hospital in Karta-e-Chahar — open 24 hours, every day of the week.</p>
+      <div class="cta-actions">
+        <a class="btn btn--gold" href="#menu" data-i18n="ab.ctaBtn">See the Menu</a>
+        <a class="btn btn--ghost" href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+    </div></div>
+  </section>
+</section>
+
+<section class="page" id="page-menu">
+  <header class="page-hero">
+    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=70" alt="Dishes at Bukhara" data-fallback></div>
+    <div class="container">
+      <p class="eyebrow" data-i18n="mn.eyebrow">Our Menu</p>
+      <h1 id="dyn-menu-title" data-i18n="mn.title">Afghan &amp; Pakistani classics, all day</h1>
+      <p class="section-lead" id="dyn-menu-lead" data-i18n="mn.sub">From charcoal-grilled kebabs to rich handi curries, fresh bread and cold drinks — served from morning to morning.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="menu-search-wrap">
+        <input type="search" id="menuSearch" placeholder="Search food…" data-i18n-ph="mn.search" aria-label="Search food">
+      </div>
+      <div class="filters" id="menuFilters" role="tablist" aria-label="Menu categories"></div>
+      <div id="menuList"></div>
+      <p class="menu-note reveal">
+        <span data-i18n="mn.note">Menu items are subject to availability. Call</span>
+        <a href="tel:+93789444222" id="dyn-menu-phone">+93 78 944 4222</a>
+        <span data-i18n="mn.note2">to confirm today's selection.</span>
+      </p>
+      <div style="text-align:center;margin-top:clamp(2rem,4vw,2.8rem)" class="reveal">
+        <button class="btn btn--gold" type="button" data-open-cart>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+          <span data-i18n="mn.orderCart">Open your order</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="page" id="page-gallery">
+  <header class="page-hero">
+    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=70" alt="Atmosphere" data-fallback></div>
+    <div class="container">
+      <p class="eyebrow" data-i18n="gl.eyebrow">Gallery</p>
+      <h1 id="dyn-gallery-title" data-i18n="gl.title">A look inside Bukhara</h1>
+      <p class="section-lead" id="dyn-gallery-lead" data-i18n="gl.sub">Our food, our dining room and the little details that make a visit memorable.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="filters" id="galleryFilters" role="tablist" aria-label="Gallery categories"></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+</section>
+
+<section class="page" id="page-contact">
+  <header class="page-hero">
+    <div class="page-hero-media"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=70" alt="Contact" data-fallback></div>
+    <div class="container">
+      <p class="eyebrow" data-i18n="ct.eyebrow">Contact Us</p>
+      <h1 id="dyn-contact-title" data-i18n="ct.title">We are open right now</h1>
+      <p class="section-lead" id="dyn-contact-lead" data-i18n="ct.sub">Call, message us on WhatsApp, or simply walk in — our doors never close.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container contact-layout">
+      <div class="reveal">
+        <div class="grid-2" style="gap:1rem">
+          <article class="info-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h3 data-i18n="ct.addrT">Address</h3><p id="dyn-contact-addr" data-i18n="ct.addrV">Beside Malalay Hospital, Qowai Markaz, Karta-e-Chahar, Kabul</p></div>
+          </article>
+          <article class="info-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h3 data-i18n="ct.phoneT">Phone</h3><p><a href="tel:+93789444222" dir="ltr" id="dyn-contact-phone">+93 78 944 4222</a></p></div>
+          </article>
+          <article class="info-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><h3 data-i18n="ct.hoursT">Opening Hours</h3><p id="dyn-contact-hours" data-i18n="ct.hoursV">Open 24 hours, 7 days a week</p></div>
+          </article>
+          <article class="info-card">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg></div>
+            <div><h3 data-i18n="ct.dirT">Directions</h3><p><a href="https://www.google.com/maps?q=34.530009,69.161181" target="_blank" rel="noopener" data-i18n="ct.dirBtn">Open in Google Maps</a></p></div>
+          </article>
+        </div>
+      </div>
+      <div class="form-card reveal" data-delay="1">
+        <h2 data-i18n="fm.title">Send us a message</h2>
+        <p data-i18n="fm.sub">Fill in the form and we will open WhatsApp with your message ready to send.</p>
+        <div class="chips" id="quickChips"></div>
+        <form id="contactForm" novalidate>
+          <div class="field" id="field-name">
+            <label for="cf-name" data-i18n="fm.name">Your name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" data-i18n-ph="fm.namePh" placeholder="e.g. Ahmad Karimi">
+            <span class="err" data-i18n="fm.errName">Please enter your name.</span>
+          </div>
+          <div class="field" id="field-phone">
+            <label for="cf-phone" data-i18n="fm.phone">Phone number (optional)</label>
+            <input type="tel" id="cf-phone" name="phone" autocomplete="tel" dir="ltr" data-i18n-ph="fm.phonePh" placeholder="+93 7XX XXX XXX">
+          </div>
+          <div class="field" id="field-message">
+            <label for="cf-message" data-i18n="fm.msg">Message</label>
+            <textarea id="cf-message" name="message" data-i18n-ph="fm.msgPh" placeholder="Table for 4 people tonight at 8pm…"></textarea>
+            <span class="err" data-i18n="fm.errMsg">Please write a short message.</span>
+          </div>
+          <button type="submit" class="btn btn--gold btn--block" data-i18n="fm.send">Send via WhatsApp</button>
+          <p class="form-note" data-i18n="fm.note">Your message opens in WhatsApp — nothing is stored on this website.</p>
+          <p class="form-success" id="formSuccess" data-i18n="fm.success">Thank you! WhatsApp should now be open with your message.</p>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="map-wrap reveal">
+        <iframe title="Bukhara Restaurant location" src="https://www.google.com/maps?q=34.530009,69.161181&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</section>
 
 <section class="page" id="page-admin">
   <header class="page-hero">
@@ -782,8 +1069,116 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
 </main>
 
-<!-- KEEP YOUR EXISTING FOOTER, WHATSAPP FLOAT, CART DRAWER, MODALS -->
-<!-- ... [PASTE YOUR EXISTING HTML FOOTER AND POPUPS HERE] ... -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand"><span class="brand-mark" id="dyn-footer-logo-wrap" aria-hidden="true"><span id="dyn-footer-logo-text">B</span><img id="dyn-footer-logo-img" style="display:none" src="" alt="Logo"></span><span class="brand-text"><strong id="dyn-footer-brand-name">Bukhara</strong><small id="dyn-footer-brand-sub">Restaurant · Kabul</small></span></a>
+        <p data-i18n="f.about">Luxurious Afghan and Pakistani dining beside Malalay Hospital in Karta-e-Chahar, Kabul. Open 24 hours.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/BukharaRestaurantKabul" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+          <a href="mailto:bukhara.r@gmail.com" aria-label="Email" id="dyn-footer-email-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+          <a class="dyn-wa-link" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="f.links">Quick Links</h4>
+        <ul>
+          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="f.contact">Contact</h4>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="dyn-footer-addr">Beside Malalay Hospital, Karta-e-Chahar, Kabul</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+93789444222" dir="ltr" id="dyn-footer-phone">+93 78 944 4222</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="dyn-footer-hours">Open 24 hours, 7 days a week</span></div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="f.hours">Find Us</h4>
+        <ul>
+          <li><a href="https://www.google.com/maps?q=34.530009,69.161181" target="_blank" rel="noopener" data-i18n="f.directions">Get directions</a></li>
+          <li><a class="dyn-wa-link" href="#" target="_blank" rel="noopener" data-i18n="f.whatsapp">WhatsApp</a></li>
+          <li><a href="mailto:bukhara.r@gmail.com" id="dyn-footer-email" data-i18n="f.email">Email us</a></li>
+          <li><a href="tel:+93789444222" id="dyn-footer-call" data-i18n="f.call">Call the restaurant</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="f.rights">© 2026 Bukhara Restaurant. All rights reserved.</span>
+      <span class="fb-links"><a href="#admin">Menu Admin</a><a href="#home" data-i18n="f.top">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float dyn-wa-link" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
+</a>
+
+<button class="cart-fab" id="cartFab" type="button" aria-label="Open your order">
+  <span class="cart-count" id="cartCount">0</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+  <span class="fab-total" id="cartFabTotal" data-i18n="cart.fabLabel">Your order</span>
+</button>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <header class="cart-head">
+    <h2 id="cartTitle" data-i18n="cart.title">Your Order</h2>
+    <button class="cart-close" id="cartClose" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </header>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-summary" id="cartSummary"></div>
+    <div class="cart-fields">
+      <div>
+        <label for="cartAgency" style="display:block;font-size:.75rem;font-weight:700;margin-bottom:.25rem">
+          Send order to which branch? *
+        </label>
+        <select id="cartAgency" required style="font-weight:700;color:var(--gold-3);border-color:var(--gold);"></select>
+      </div>
+      <input type="text" id="cartName" autocomplete="name" data-i18n-ph="cart.namePh" placeholder="Your name">
+      <input type="tel" id="cartPhone" dir="ltr" autocomplete="tel" data-i18n-ph="cart.phonePh" placeholder="Your phone number">
+      <textarea id="cartNote" rows="2" data-i18n-ph="cart.notePh" placeholder="Address, table number or special requests…"></textarea>
+    </div>
+    <button class="btn btn--gold btn--block" id="cartCheckout" type="button">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.86 9.86 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
+      <span data-i18n="cart.checkout">Send order on WhatsApp</span>
+    </button>
+    <div class="cart-actions-row">
+      <button class="cart-clear" id="cartClear" type="button" data-i18n="cart.clear">Clear order</button>
+      <button class="cart-back-menu" id="cartBackMenu" type="button">Back to Menu</button>
+    </div>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="extrasModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Customize your order</h3>
+      <button class="cart-close" type="button" onclick="closeExtrasModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body" id="extrasModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn--gold btn--block" type="button" id="extrasAddBtn">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <figure style="margin:0;display:grid;justify-items:center">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lb-cap" id="lbCap"></figcaption>
+  </figure>
+</div>
 
 <script>
 (function () {
@@ -792,17 +1187,17 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   /* =========================================
      EMAILJS SETUP (PASTE YOUR KEYS HERE)
      ========================================= */
-  const EMAILJS_PUBLIC_KEY = "EnUk_8WdQtE1MNkfS";   // <-- Get from EmailJS Account > General
-  const EMAILJS_SERVICE_ID = "service_t6hzf7n";   // <-- Get from EmailJS Email Services
-  const EMAILJS_TEMPLATE_ID = "template_ow95t12"; // <-- Get from EmailJS Email Templates
+  const EMAILJS_PUBLIC_KEY = "EnUk_8wdQtE1MNkfS";      // <-- Your Public Key
+  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID_HERE";   // <-- REPLACE WITH YOUR SERVICE ID
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE"; // <-- REPLACE WITH YOUR TEMPLATE ID
   let EMAILJS_ENABLED = false;
 
   if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY_HERE" && typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
     EMAILJS_ENABLED = true;
-    console.log("EmailJS initialized. Emails will be sent.");
+    console.log("EmailJS initialized.");
   } else {
-    console.log("EmailJS keys missing. Emails will not be sent.");
+    console.log("EmailJS keys missing.");
   }
 
   /* =========================================
@@ -1111,7 +1506,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
   }
 
-  /* ============ SITE CONTENT ============ */
   function loadLocalSiteContent(){
     try {
       const raw = localStorage.getItem(CONTENT_CACHE);
@@ -1177,6 +1571,9 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       if (siteContent.heroTitle) $('#sc-hero-title').value = siteContent.heroTitle;
       if (siteContent.heroTitle2) $('#sc-hero-title2').value = siteContent.heroTitle2;
       if (siteContent.heroSub) $('#sc-hero-sub').value = siteContent.heroSub;
+      if (siteContent.aboutImg){ $('#sc-about-img').value = siteContent.aboutImg; updateScPreview('sc-about-preview', siteContent.aboutImg); }
+      if (siteContent.aboutTitle) $('#sc-about-title').value = siteContent.aboutTitle;
+      if (siteContent.aboutText) $('#sc-about-text').value = siteContent.aboutText;
     }
   }
 
@@ -1215,7 +1612,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     });
   }
 
-  /* ============ CATEGORIES ============ */
   function loadCategoriesLocal(){
     try {
       const raw = localStorage.getItem(CATEGORIES_CACHE);
@@ -1288,7 +1684,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     }).join('') + '</div>';
   }
 
-  /* ============ AGENCIES ============ */
   function loadLocalAgencies(){
     try {
       const raw = localStorage.getItem(AGENCIES_CACHE);
@@ -1347,7 +1742,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     ).join('');
   }
 
-  /* ============ MENU ============ */
   function matchesSearch(item){
     if (!state.search) return true;
     const q = state.search.toLowerCase();
@@ -1405,7 +1799,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     toast(newStatus ? 'Marked as Sold Out' : 'Back in Stock');
   }
 
-  /* ============ CART ============ */
   function loadCart(){
     try {
       const raw = localStorage.getItem(CART_KEY);
@@ -1640,7 +2033,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     btn.disabled = false;
   }
 
-  /* ============ RENDER MENU ============ */
   function renderFilterBar(host, keys, current, attr){
     if (!host) return;
     host.innerHTML = keys.map(key => {
@@ -1729,7 +2121,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     ].map(c => '<button class="chip" type="button" data-chip="' + c.id + '">' + esc(c.text) + '</button>').join('');
   }
 
-  /* ============ EXTRAS MODAL ============ */
   let extrasFocusTrap = null;
   window.openExtrasModal = function(id, sizeKey) {
     const item = ITEM_INDEX[id]; if (!item || !item.extras || !item.extras.length) return;
@@ -1799,7 +2190,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     $('#extrasModal').addEventListener('click', (e) => { if(e.target.id === 'extrasModal') closeExtrasModal(); });
   }
 
-  /* ============ ADMIN ============ */
   function renderAdminCategories(){
     const sel = $('#af-cat'); if (!sel) return;
     const prev = sel.value;
@@ -2082,7 +2472,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     const rst = $('[data-admin-reset]'); if (rst) rst.addEventListener('click', resetMenuToDefault);
   }
 
-  /* ============ LANGUAGE ============ */
   function applyLanguage(lang, silent){
     if (!T[lang]) lang = 'en';
     state.lang = lang;
@@ -2098,7 +2487,6 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
     if (!silent) closeNav();
   }
 
-  /* ============ ROUTING ============ */
   const header = $('#header');
   function syncHeader(){
     header.classList.toggle('solid', state.route !== 'home');
